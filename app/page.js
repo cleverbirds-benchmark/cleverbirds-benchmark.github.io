@@ -24,16 +24,36 @@ export default function Home() {
 
   const searches = [
     {
-      query: "Sample question 1",
-      images: ["bower_1.jpeg", "bower_2.jpeg", "bower_3.jpeg"],
+      query: "A hermit crab using plastic trash as its shell",
+      images: ["hermit_1.png", "hermit_2.png", "hermit_3.png", "hermit_2.png"],
     },
     {
-      query: "Sample question 2",
+      query: "Distal rynchokinesis",
+      images: ["distal_1.jpeg", "distal_2.jpeg", "distal_3.jpeg"],
+    },
+    {
+      query: "California condor tagged with a green \"26\"",
       images: ["condor_1.jpeg", "condor_2.jpeg", "condor_3.jpeg", "condor_4.jpeg"],
     },
     {
-      query: "Sample question 3",
-      images: ["distal_1.jpeg", "distal_2.jpeg", "distal_3.jpeg"],
+      query: "Everted osmeterium",
+      images: ["swallowtail_1.jpeg", "swallowtail_2.jpeg", "swallowtail_3.jpeg", "swallowtail_4.jpeg"],
+    },
+    {
+      query: "An ornamented bowerbird nest",
+      images: ["bower_1.jpeg", "bower_2.jpeg", "bower_3.jpeg"],
+    },
+    {
+      query: "A nest brood parasitized by a cowbird",
+      images: ["nest_1.jpeg", "nest_2.jpeg", "nest_3.jpeg"],
+    },
+    {
+      query: "A sick cassava plant",
+      images: ["cassava_1.jpeg", "cassava_2.jpeg", "cassava_3.jpeg", "cassava_4.jpeg"],
+    },
+    {
+      query: "Tamandua back-brooding its young",
+      images: ["tamandua_1.jpeg", "tamandua_2.jpeg", "tamandua_3.jpeg"],
     },
   ];
 
@@ -57,10 +77,10 @@ export default function Home() {
         <div className="w-full max-w-[960px] m-auto mx-4">
           <div className="bg-white w-full py-8 px-12">
             <div className="text-[80px] font-medium flex items-center">
-              Your Project
+              CleverBirds
             </div>
             <div className="mt-2 text-3xl font-regular mb-10 text-slate-700">
-              A Brief Description of Your Work
+              A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
             </div>
             <div className="mb-2">
               Leonie Bossemeyer<sup>1</sup>
@@ -89,13 +109,13 @@ export default function Home() {
       <div className="w-full min-h-screen bg-white pt-16 pb-8">
         <div className="max-w-[900px] px-6 m-auto">
           <div className="text-[48px] font-medium text-center mb-2 items-center">
-            Your Project
+            CleverBirds
           </div>
           <div className="mt-8 text-md font-regular  mb-8 text-slate-700">
-            <b>Brief introduction to your work.</b>
+            <b>Understanding human knowledge requires fine-grained assessment.</b>
             <br /><br />
 
-            Add your project description here. This is a template that you can customize with your own content.
+            We introduce <b>CleverBirds</b>, a multiple-choice benchmark for fine-grained human knowledge tracing.
           </div>
 
           <div className=" bg-slate-100 rounded-lg p-4 border border-slate-200">
@@ -120,22 +140,51 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-4 text-center text-slate-700">
-            Want to learn more? Check out the <a className="text-sky-500 underline" href="#">interactive demo &rarr;</a>.
+            Want to try the benchmark? Check out the <a className="text-sky-500 underline" href="#">interactive demo &rarr;</a>.
           </div>
         </div>
       </div>
 
       <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
-        About
+        Questions
       </div>
       <div className="w-full bg-white py-8">
         <div className="max-w-[900px] px-6 m-auto">
           <div>
-            Add information about your project here. This section can describe your methodology,
-            results, or any other relevant details.
+            CleverBirds contains multiple-choice questions designed to assess fine-grained human knowledge.
           </div>
-          <div className="mt-4">
-            You can customize this content to match your specific research or project needs.
+        </div>
+      </div>
+
+      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Tasks
+      </div>
+      <div className="w-full bg-white py-8">
+        <div className="max-w-[900px] px-6 m-auto">
+          <div className="mb-4">CleverBirds includes evaluation tasks: </div>
+          <div className="mt-2">
+            <b>Knowledge Tracing: Predicting individual learning progress</b>
+          </div>
+          <div className="mt-2">
+            <b>Difficulty Prediction: Estimating question difficulty levels</b>
+          </div>
+          <div className="mt-2">
+            <b>Adaptive Assessment: Dynamic question selection</b>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Dataset
+      </div>
+      <div className="w-full bg-white py-8">
+        <div className="max-w-[900px] px-6 m-auto">
+          <div className="border border-slate-200 p-4 rounded-lg bg-slate-100 mb-4">
+            <div className="text-2xl font-bold text-slate-700">CleverBirds Questions</div>
+            <div className="mt-2">
+              Multiple-choice questions designed to assess fine-grained human knowledge.
+            </div>
           </div>
         </div>
       </div>
@@ -146,17 +195,17 @@ export default function Home() {
       <div className="w-full bg-white py-8">
         <div className="max-w-[900px] px-6 m-auto">
           <div>
-            If you found this work useful, please consider citing:
+            If you found CleverBirds useful, please consider citing our work:
           </div>
 
           <pre className="mt-4 bg-slate-100 p-4 rounded-lg text-xs text-wrap">
-            @article{"{"}bossemeyer2024work,
+            @article{"{"}bossemeyer2024cleverbirds,
             <br />
-            &nbsp;&nbsp;title={"{"}Your Project Title{"}"},
+            &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
             <br />
             &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie{"}"},
             <br />
-            &nbsp;&nbsp;journal={"{"}Your Journal{"}"},
+            &nbsp;&nbsp;journal={"{"}arXiv preprint{"}"},
             <br />
             &nbsp;&nbsp;year={"{"}2024{"}"},
             <br />
