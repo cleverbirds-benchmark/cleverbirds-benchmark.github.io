@@ -1,75 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import * as Icons from "react-bootstrap-icons";
 
-function SearchField({ active, onClick, children }) {
-  return (
-    <div
-      className={"px-3 py-2 rounded-lg mb-2 text-sm mx-1 border border-slate-200  cursor-pointer  hover:bg-slate-200 hover:text-black " +
-        (active ? 'bg-slate-200 text-slate-600' : 'text-slate-500')}
-      onClick={onClick}
-      style={{ "lineHeight": "1.3em" }}
-    >
-      <Icons.Search className="inline w-4 h-4 mr-2 mb-0.5" />
-      {children}
-    </div>
-  );
-}
-
 export default function Home() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [useInterval, setUseInterval] = useState(true);
-
-  const searches = [
-    {
-      query: "A hermit crab using plastic trash as its shell",
-      images: ["hermit_1.png", "hermit_2.png", "hermit_3.png", "hermit_2.png"],
-    },
-    {
-      query: "Distal rynchokinesis",
-      images: ["distal_1.jpeg", "distal_2.jpeg", "distal_3.jpeg"],
-    },
-    {
-      query: "California condor tagged with a green \"26\"",
-      images: ["condor_1.jpeg", "condor_2.jpeg", "condor_3.jpeg", "condor_4.jpeg"],
-    },
-    {
-      query: "Everted osmeterium",
-      images: ["swallowtail_1.jpeg", "swallowtail_2.jpeg", "swallowtail_3.jpeg", "swallowtail_4.jpeg"],
-    },
-    {
-      query: "An ornamented bowerbird nest",
-      images: ["bower_1.jpeg", "bower_2.jpeg", "bower_3.jpeg"],
-    },
-    {
-      query: "A nest brood parasitized by a cowbird",
-      images: ["nest_1.jpeg", "nest_2.jpeg", "nest_3.jpeg"],
-    },
-    {
-      query: "A sick cassava plant",
-      images: ["cassava_1.jpeg", "cassava_2.jpeg", "cassava_3.jpeg", "cassava_4.jpeg"],
-    },
-    {
-      query: "Tamandua back-brooding its young",
-      images: ["tamandua_1.jpeg", "tamandua_2.jpeg", "tamandua_3.jpeg"],
-    },
-  ];
-
-  const clickSearch = function (idx) {
-    setUseInterval(false);
-    setActiveIdx(idx);
-  }
-
-  useEffect(() => {
-    if (useInterval) {
-      const newID = setInterval(() => {
-        setActiveIdx((idx) => (idx + 1) % searches.length)
-      }, 2000)
-      return () => clearInterval(newID)
-    }
-  }, [useInterval])
 
   return (
     <div className="min-w-[720px]">
@@ -83,10 +17,10 @@ export default function Home() {
               A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
             </div>
             <div className="mb-2">
-              Leonie Bossemeyer<sup>1</sup>
+              <a href="https://bossemel.github.io/" className="text-slate-700 hover:text-slate-900">Leonie Bossemeyer</a><sup>1</sup> <a href="https://www.birds.cornell.edu/home/staff/sam-heinrich/" className="text-slate-700 hover:text-slate-900">Samuel Heinrich</a><sup>2</sup> <a href="https://gvh.codes/" className="text-slate-700 hover:text-slate-900">Grant Van Horn</a><sup>3</sup> <a href="https://homepages.inf.ed.ac.uk/omacaod/" className="text-slate-700 hover:text-slate-900">Oisin Mac Aodha</a><sup>1</sup>
             </div>
             <div>
-              <sup> 1</sup>PhD Student in Machine Learning
+              <sup>1</sup>University of Edinburgh <sup>2</sup>Cornell University <sup>3</sup>UMass Amherst
             </div>
             <div className="mt-8">
               <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="#">
@@ -112,78 +46,79 @@ export default function Home() {
             CleverBirds
           </div>
           <div className="mt-8 text-md font-regular  mb-8 text-slate-700">
-            <b>Understanding human knowledge requires fine-grained assessment.</b>
+            <b>Abstract</b>
             <br /><br />
 
-            We introduce <b>CleverBirds</b>, a multiple-choice benchmark for fine-grained human knowledge tracing.
+            Fine-grained visual recognition, essential in many expert domains, often requires specialists years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning. We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition. Collected by the citizen-science platform eBird, it offers insight into how individuals acquire expertise in complex fine-grained classification tasks. More than 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant. We release this dataset to support the development and evaluation of new methods for visual knowledge tracing. We show that tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit. CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. With it, we hope to enable new avenues for studying the development of visual expertise over time and across individuals.
           </div>
 
-          <div className=" bg-slate-100 rounded-lg p-4 border border-slate-200">
-            <div className="flex flex-wrap justify-center">
-              {searches.map((search, idx) => (
-                <SearchField key={idx} active={idx == activeIdx} onClick={() => { clickSearch(idx) }}>{search.query}</SearchField>
-              ))}
+          <div className="mt-8 mb-8">
+            <Image
+              src="/images/task_schema.png"
+              alt="Task Schema"
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg shadow-sm"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+
+        </div>
+      </div>
+
+      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Dataset Statistics
+      </div>
+      <div className="w-full bg-white py-8">
+        <div className="max-w-[900px] px-6 m-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="bg-slate-100 p-4 rounded-lg text-center">
+              <div className="text-2xl font-bold text-slate-700">40,144</div>
+              <div className="text-sm text-slate-600">Participants</div>
             </div>
-
-            <div className="mt-2  px-5 w-full h-full rounded-lg">
-              <div className="mt-2 text-lg px-2 py-2.5 mb-4 text-slate-700 text-center rounded-lg bg-white border border-slate-200">
-                {searches[activeIdx].query}
-              </div>
-
-              <div className="rounded-lg p-2 flex flex-wrap justify-center" key={activeIdx}>
-                {searches[activeIdx].images.map((im, idx) => (
-                  <div className="w-32 h-32 lg:w-40 lg:h-40 m-1"
-                    style={{ background: `url('/images/queries/${im}') center / cover`, backgroundRepeat: 'no-repeat' }}
-                    key={idx}></div>
-                ))}
-              </div>
+            <div className="bg-slate-100 p-4 rounded-lg text-center">
+              <div className="text-2xl font-bold text-slate-700">17,859,392</div>
+              <div className="text-sm text-slate-600">Total Interactions</div>
+            </div>
+            <div className="bg-slate-100 p-4 rounded-lg text-center">
+              <div className="text-2xl font-bold text-slate-700">10,779</div>
+              <div className="text-sm text-slate-600">Bird Species</div>
+            </div>
+            <div className="bg-slate-100 p-4 rounded-lg text-center">
+              <div className="text-2xl font-bold text-slate-700">444</div>
+              <div className="text-sm text-slate-600">Avg Questions/User</div>
             </div>
           </div>
-          <div className="mt-4 text-center text-slate-700">
-            Want to try the benchmark? Check out the <a className="text-sky-500 underline" href="#">interactive demo &rarr;</a>.
-          </div>
-        </div>
-      </div>
-
-      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
-        Questions
-      </div>
-      <div className="w-full bg-white py-8">
-        <div className="max-w-[900px] px-6 m-auto">
-          <div>
-            CleverBirds contains multiple-choice questions designed to assess fine-grained human knowledge.
-          </div>
-        </div>
-      </div>
-
-      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
-        Tasks
-      </div>
-      <div className="w-full bg-white py-8">
-        <div className="max-w-[900px] px-6 m-auto">
-          <div className="mb-4">CleverBirds includes evaluation tasks: </div>
-          <div className="mt-2">
-            <b>Knowledge Tracing: Predicting individual learning progress</b>
-          </div>
-          <div className="mt-2">
-            <b>Difficulty Prediction: Estimating question difficulty levels</b>
-          </div>
-          <div className="mt-2">
-            <b>Adaptive Assessment: Dynamic question selection</b>
+          <div className="text-center text-slate-700">
+            CleverBirds contains data from over 40,000 unique participants answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
           </div>
         </div>
       </div>
 
 
       <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
-        Dataset
+        Key Findings
       </div>
       <div className="w-full bg-white py-8">
         <div className="max-w-[900px] px-6 m-auto">
-          <div className="border border-slate-200 p-4 rounded-lg bg-slate-100 mb-4">
-            <div className="text-2xl font-bold text-slate-700">CleverBirds Questions</div>
-            <div className="mt-2">
-              Multiple-choice questions designed to assess fine-grained human knowledge.
+          <div className="space-y-6">
+            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
+              <div className="text-xl font-bold text-slate-700 mb-2">User Context is More Informative</div>
+              <div className="text-slate-600">
+                Models receiving both user and species context perform best overall, with models receiving only user context close behind. User-specific context appears necessary for strong predictions.
+              </div>
+            </div>
+            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
+              <div className="text-xl font-bold text-slate-700 mb-2">Predicting Incorrect Choices is Challenging</div>
+              <div className="text-slate-600">
+                While supervised models achieve approximately 70% accuracy on the multiple-choice task, all trained models achieve less than 10% accuracy on questions where participants choose the wrong answer.
+              </div>
+            </div>
+            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
+              <div className="text-xl font-bold text-slate-700 mb-2">Image Features Complement Context</div>
+              <div className="text-slate-600">
+                Image features help knowledge tracing for CleverBirds, but only when combined with the right context. On incorrectly answered questions, models with image features significantly outperform others.
+              </div>
             </div>
           </div>
         </div>
@@ -199,15 +134,15 @@ export default function Home() {
           </div>
 
           <pre className="mt-4 bg-slate-100 p-4 rounded-lg text-xs text-wrap">
-            @article{"{"}bossemeyer2024cleverbirds,
+            @article{"{"}bossemeyer2025cleverbirds,
             <br />
             &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
             <br />
-            &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie{"}"},
+            &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin{"}"},
             <br />
             &nbsp;&nbsp;journal={"{"}arXiv preprint{"}"},
             <br />
-            &nbsp;&nbsp;year={"{"}2024{"}"},
+            &nbsp;&nbsp;year={"{"}2025{"}"},
             <br />
             {"}"}
           </pre>

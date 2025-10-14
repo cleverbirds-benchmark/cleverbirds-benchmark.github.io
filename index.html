@@ -16,10 +16,15 @@ title: CleverBirds
                     A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
                 </div>
                 <div class="mb-2">
-                    <a class="text-sky-500" href="#" target="_blank">{{ site.author.name }}</a><sup>1</sup>
+                    <a class="text-sky-500" href="https://bossemel.github.io/" target="_blank">Leonie
+                        Bossemeyer</a><sup>1</sup> <a class="text-sky-500"
+                        href="https://www.birds.cornell.edu/home/staff/sam-heinrich/" target="_blank">Samuel
+                        Heinrich</a><sup>2</sup> <a class="text-sky-500" href="https://gvh.codes/" target="_blank">Grant
+                        Van Horn</a><sup>3</sup> <a class="text-sky-500" href="https://homepages.inf.ed.ac.uk/omacaod/"
+                        target="_blank">Oisin Mac Aodha</a><sup>1</sup>
                 </div>
                 <div>
-                    <sup>1</sup>PhD Student in Machine Learning
+                    <sup>1</sup>University of Edinburgh <sup>2</sup>Cornell University <sup>3</sup>UMass Amherst
                 </div>
                 <div class="mt-8">
                     <a class="btn" target="_blank" href="#">
@@ -58,14 +63,23 @@ title: CleverBirds
                 CleverBirds
             </div>
             <div class="mt-8 text-md font-regular mb-8 text-slate-700">
-                <b>Understanding human knowledge requires fine-grained assessment.</b>
+                <b>Abstract</b>
                 <br /><br />
 
-                We introduce <b>CleverBirds</b>, a multiple-choice benchmark for fine-grained human knowledge tracing
-                that evaluates
-                understanding across diverse domains and cognitive levels. CleverBirds provides a comprehensive
-                framework for
-                assessing knowledge acquisition, retention, and transfer in educational contexts.
+                Fine-grained visual recognition, essential in many expert domains, often requires specialists years of
+                dedicated training. Modeling the progression of such expertise remains challenging, and accurately
+                inferring a learner's knowledge state is a key step toward understanding visual learning. We introduce
+                <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition.
+                Collected by the citizen-science platform eBird, it offers insight into how individuals acquire
+                expertise in complex fine-grained classification tasks. More than 40,000 participants have engaged in
+                the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with
+                long-range learning patterns across an average of 400+ questions per participant. We release this
+                dataset to support the development and evaluation of new methods for visual knowledge tracing. We show
+                that tracking learners' knowledge is challenging, especially across participant subgroups and question
+                types, with different forms of contextual information offering varying degrees of predictive benefit.
+                CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of
+                learnable concepts. With it, we hope to enable new avenues for studying the development of visual
+                expertise over time and across individuals.
             </div>
 
             <!-- Question Examples -->
@@ -117,90 +131,67 @@ title: CleverBirds
         </div>
     </div>
 
-    <!-- Questions Section -->
+    <!-- Dataset Statistics Section -->
     <div class="section-header">
-        Questions
+        Dataset Statistics
     </div>
     <div class="w-full bg-white py-8">
         <div class="max-w-[900px] px-6 m-auto">
-            <div>
-                CleverBirds contains carefully crafted multiple-choice questions designed to assess fine-grained human
-                knowledge across diverse domains including biology, ecology, animal behavior, and natural sciences.
-            </div>
-            <div class="mt-4">
-                Each question is designed to test specific knowledge components, from basic recall to complex reasoning
-                and application skills.
-            </div>
-            <div class="mt-4">
-                Our questions cover multiple cognitive levels and knowledge domains:
-            </div>
-
-            <div class="flex flex-wrap justify-center mt-4">
-                <div class="info-box">
-                    <h3>Knowledge Domains</h3>
-                    <ul>
-                        <li>• Animal Behavior</li>
-                        <li>• Ecological Adaptations</li>
-                        <li>• Biological Processes</li>
-                        <li>• Environmental Science</li>
-                    </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-slate-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-slate-700">40,144</div>
+                    <div class="text-sm text-slate-600">Participants</div>
                 </div>
-                <div class="info-box">
-                    <h3>Cognitive Levels</h3>
-                    <ul>
-                        <li>• Recall & Recognition</li>
-                        <li>• Comprehension</li>
-                        <li>• Application</li>
-                        <li>• Analysis & Synthesis</li>
-                    </ul>
+                <div class="bg-slate-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-slate-700">17,859,392</div>
+                    <div class="text-sm text-slate-600">Total Interactions</div>
                 </div>
+                <div class="bg-slate-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-slate-700">10,779</div>
+                    <div class="text-sm text-slate-600">Bird Species</div>
+                </div>
+                <div class="bg-slate-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-slate-700">444</div>
+                    <div class="text-sm text-slate-600">Avg Questions/User</div>
+                </div>
+            </div>
+            <div class="text-center text-slate-700">
+                CleverBirds contains data from over 40,000 unique participants answering over 17 million multiple-choice
+                questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+
+                questions per participant.
             </div>
         </div>
     </div>
 
-    <!-- Tasks Section -->
+    <!-- Key Findings Section -->
     <div class="section-header">
-        Benchmark Tasks
+        Key Findings
     </div>
     <div class="w-full bg-white py-8">
         <div class="max-w-[900px] px-6 m-auto">
-            <div class="mb-4">CleverBirds includes several evaluation tasks: </div>
-            <div class="mt-2">
-                <b>Knowledge Tracing: Predicting individual learning progress</b>
-                <br />
-                This task evaluates how well models can predict a learner's knowledge state and future performance based
-                on their response history and question characteristics.
-            </div>
-            <div class="mt-2">
-                <b>Difficulty Prediction: Estimating question difficulty levels</b>
-                <br />
-                This task assesses the ability to predict question difficulty and identify which questions are most
-                challenging for different knowledge levels.
-            </div>
-            <div class="mt-2">
-                <b>Adaptive Assessment: Dynamic question selection</b>
-                <br />
-                This task evaluates systems that can adaptively select questions based on current knowledge estimates to
-                optimize learning outcomes.
-            </div>
-
-            <div class="text-blue-500 mt-4">
-                The benchmark supports both individual and population-level analysis, enabling research into
-                personalized learning and educational technology. <br />
-                CleverBirds is designed to be accessible for researchers working on educational AI and knowledge
-                assessment.
-            </div>
-
-            <div class="flex flex-wrap justify-center mt-8">
-                <div class="info-box" style="max-width: 28rem;">
-                    <h3>Evaluation Metrics</h3>
-                    <ul>
-                        <li>• Accuracy & Precision</li>
-                        <li>• Knowledge State Estimation</li>
-                        <li>• Learning Curve Analysis</li>
-                        <li>• Difficulty Calibration</li>
-                        <li>• Transfer Learning Performance</li>
-                    </ul>
+            <div class="space-y-6">
+                <div class="border border-slate-200 p-6 rounded-lg bg-slate-50">
+                    <div class="text-xl font-bold text-slate-700 mb-2">User Context is More Informative</div>
+                    <div class="text-slate-600">
+                        Models receiving both user and species context perform best overall, with models receiving only
+                        user context close behind. User-specific context appears necessary for strong predictions.
+                    </div>
+                </div>
+                <div class="border border-slate-200 p-6 rounded-lg bg-slate-50">
+                    <div class="text-xl font-bold text-slate-700 mb-2">Predicting Incorrect Choices is Challenging</div>
+                    <div class="text-slate-600">
+                        While supervised models achieve approximately 70% accuracy on the multiple-choice task, all
+                        trained models achieve less than 10% accuracy on questions where participants choose the wrong
+                        answer.
+                    </div>
+                </div>
+                <div class="border border-slate-200 p-6 rounded-lg bg-slate-50">
+                    <div class="text-xl font-bold text-slate-700 mb-2">Image Features Complement Context</div>
+                    <div class="text-slate-600">
+                        Image features help knowledge tracing for CleverBirds, but only when combined with the right
+                        context. On incorrectly answered questions, models with image features significantly outperform
+                        others.
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,42 +204,42 @@ title: CleverBirds
     <div class="w-full bg-white py-8">
         <div class="max-w-[900px] px-6 m-auto">
             <div class="info-box">
-                <div class="text-2xl font-bold text-slate-700">CleverBirds Questions</div>
+                <div class="text-2xl font-bold text-slate-700">Quiz Composition</div>
                 <div class="mt-2">
-                    The benchmark includes multiple-choice questions across various knowledge domains, designed to
-                    assess different cognitive levels and learning outcomes.
+                    The CleverBirds dataset is sourced from an online bird species identification quiz created by the
+                    citizen science project eBird. Users are shown an image and asked to guess which species of bird
+                    from a list of options is present in the image shown.
                 </div>
-                <div class="mt-0">
-                    Question metadata and answer keys are available in our
-                    <a class="underline font-bold ms-1" target="_blank" href="#">GitHub repository.</a>
-                </div>
-                <div class="mt-4">
-                    Each question includes difficulty ratings, domain classifications, and cognitive level indicators to
-                    support comprehensive analysis.
+                <div class="mt-2">
+                    Quiz images are sampled from images uploaded within the last 5 to 365 days and contain proportions
+                    of both images with no quality rank, and images that have quality rank of at least 2.4 out of 5
+                    possible stars.
                 </div>
             </div>
 
             <div class="info-box">
-                <div class="text-2xl font-bold text-slate-700">Response Data</div>
+                <div class="text-2xl font-bold text-slate-700">Data Filtering</div>
                 <div class="mt-2">
-                    The dataset includes anonymized student response patterns, learning trajectories, and performance
-                    metrics across different question types.
+                    CleverBirds is based on all quizzes completed online from March 14th 2018 to October 8th, 2024. To
+                    maintain a focus on visual learning, we exclude audio-based quizzes, questions missing valid image
+                    assets, and unanswered questions.
                 </div>
-                <div class="mt-0">
-                    Response data is structured to support knowledge tracing analysis and includes temporal information
-                    for tracking learning progress.
+                <div class="mt-2">
+                    To limit the influence of less committed users, we remove data from users with less than two
+                    attempted quizzes and retain only the first 350 quizzes per user.
                 </div>
             </div>
 
             <div class="info-box">
-                <div class="text-2xl font-bold text-slate-700">Metadata & Annotations</div>
+                <div class="text-2xl font-bold text-slate-700">Privacy & Release</div>
                 <div class="mt-2">
-                    Comprehensive metadata includes question difficulty estimates, domain classifications, prerequisite
-                    knowledge requirements, and learning objective mappings.
+                    To ensure user privacy we anonymize all user-related identifiers, as well as those of quizzes,
+                    questions, and image assets. We aggregate quiz locations using the H3 geospatial index at resolution
+                    3.
                 </div>
-                <div class="mt-0">
-                    Expert annotations provide ground truth for question characteristics and support validation of
-                    automated difficulty prediction models.
+                <div class="mt-2">
+                    We release interaction histories with anonymized participant IDs for all questions in the filtered
+                    dataset, alongside precomputed image features for all the image assets.
                 </div>
             </div>
         </div>
@@ -265,12 +256,15 @@ title: CleverBirds
             </div>
 
             <div class="citation-box">
-                @article{bossemeyer2024cleverbirds,<br />
+                @article{bossemeyer2025cleverbirds,<br />
                 &nbsp;&nbsp;title={CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing},
                 <br />
-                &nbsp;&nbsp;author={Bossemeyer, Leonie},<br />
-                &nbsp;&nbsp;journal={arXiv preprint},<br />
-                &nbsp;&nbsp;year={2024},<br />
+                &nbsp;&nbsp;author={Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin},
+                <br />
+                &nbsp;&nbsp;journal={arXiv preprint},
+                <br />
+                &nbsp;&nbsp;year={2025},
+                <br />
                 }
             </div>
         </div>
