@@ -1,0 +1,53 @@
+title: CleverBirds
+subtitle: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
+description: CleverBirds provides a comprehensive framework for assessing knowledge acquisition, retention, and transfer in educational contexts.
+
+# Site settings
+url: "https://clever_birds.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Author information
+author:
+  name: Leonie Bossemeyer
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Questions
+    url: #questions
+  - title: Tasks
+    url: #tasks
+  - title: Dataset
+    url: #dataset
+  - title: Citation
+    url: #citation
+
+# Collections
+collections:
+  questions:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

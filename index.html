@@ -1,38 +1,287 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: CleverBirds
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleverBirds</title>
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            /* Light grey background */
-        }
-
-        .logo-container {
-            text-align: center;
-        }
-
-        .logo-container img {
-            max-width: 100px;
-            height: auto;
-            transform: scaleX(-1);
-        }
-    </style>
-</head>
-
-<body>
-    <div class="logo-container">
-        <img src="inquire-logo.png" alt="Inquire Logo">
+<div class="min-w-[720px]">
+    <div class="flex justify-center w-full h-screen bg-contain bg-center"
+        style="background-image: url('images/background.jpg'); background-size: 1200px;">
+        <div class="w-full max-w-[960px] m-auto mx-4">
+            <div class="bg-white w-full py-8 px-12">
+                <div class="text-[80px] font-medium flex items-center">
+                    CleverBirds
+                </div>
+                <div class="mt-2 text-3xl font-regular mb-10 text-slate-700">
+                    A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
+                </div>
+                <div class="mb-2">
+                    <a class="text-sky-500" href="#" target="_blank">{{ site.author.name }}</a><sup>1</sup>
+                </div>
+                <div>
+                    <sup>1</sup>Pieces for Developers & PhD Student in Machine Learning
+                </div>
+                <div class="mt-8">
+                    <a class="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2"
+                        target="_blank" href="#">
+                        <svg class="w-4 h-4 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Paper
+                    </a>
+                    <a class="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2"
+                        target="_blank" href="#">
+                        <svg class="w-4 h-4 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Code
+                    </a>
+                    <a class="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2"
+                        target="_blank" href="#">
+                        <svg class="w-4 h-4 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Data
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
 
-</html>
+    <div class="w-full min-h-screen bg-white pt-16 pb-8">
+        <div class="max-w-[900px] px-6 m-auto">
+            <div class="text-[48px] font-medium text-center mb-2 items-center">
+                CleverBirds
+            </div>
+            <div class="mt-8 text-md font-regular mb-8 text-slate-700">
+                <b>Understanding human knowledge requires fine-grained assessment.</b>
+                <br /><br />
+
+                We introduce <b>CleverBirds</b>, a multiple-choice benchmark for fine-grained human knowledge tracing
+                that evaluates
+                understanding across diverse domains and cognitive levels. CleverBirds provides a comprehensive
+                framework for
+                assessing knowledge acquisition, retention, and transfer in educational contexts.
+            </div>
+
+            <div class="bg-slate-100 rounded-lg p-4 border border-slate-200">
+                <div class="flex flex-wrap justify-center">
+                    <div
+                        class="px-3 py-2 rounded-lg mb-2 text-sm mx-1 border border-slate-200 cursor-pointer hover:bg-slate-200 hover:text-black bg-slate-200 text-slate-600">
+                        <svg class="inline w-4 h-4 mr-2 mb-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Which bird species exhibits the most complex nest-building behavior?
+                    </div>
+                    <div
+                        class="px-3 py-2 rounded-lg mb-2 text-sm mx-1 border border-slate-200 cursor-pointer hover:bg-slate-200 hover:text-black text-slate-500">
+                        <svg class="inline w-4 h-4 mr-2 mb-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        What is the primary adaptation that allows birds to fly?
+                    </div>
+                    <div
+                        class="px-3 py-2 rounded-lg mb-2 text-sm mx-1 border border-slate-200 cursor-pointer hover:bg-slate-200 hover:text-black text-slate-500">
+                        <svg class="inline w-4 h-4 mr-2 mb-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Which mechanism enables birds to manipulate objects with their beaks?
+                    </div>
+                </div>
+
+                <div class="mt-2 px-5 w-full h-full rounded-lg">
+                    <div
+                        class="mt-2 text-lg px-2 py-2.5 mb-4 text-slate-700 text-center rounded-lg bg-white border border-slate-200">
+                        Which bird species exhibits the most complex nest-building behavior?
+                    </div>
+
+                    <div class="rounded-lg p-2 flex flex-wrap justify-center">
+                        <div class="w-32 h-32 lg:w-40 lg:h-40 m-1"
+                            style="background: url('images/queries/bower_1.jpeg') center / cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="w-32 h-32 lg:w-40 lg:h-40 m-1"
+                            style="background: url('images/queries/bower_2.jpeg') center / cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="w-32 h-32 lg:w-40 lg:h-40 m-1"
+                            style="background: url('images/queries/bower_3.jpeg') center / cover; background-repeat: no-repeat;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-slate-700">
+                Want to try the benchmark? Check out the <a class="text-sky-500 underline" href="#"
+                    target="_blank">interactive demo &rarr;</a>.
+            </div>
+        </div>
+    </div>
+
+    <div class="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Questions
+    </div>
+    <div class="w-full bg-white py-8">
+        <div class="max-w-[900px] px-6 m-auto">
+            <div>
+                CleverBirds contains carefully crafted multiple-choice questions designed to assess fine-grained human
+                knowledge across diverse domains including biology, ecology, animal behavior, and natural sciences.
+            </div>
+            <div class="mt-4">
+                Each question is designed to test specific knowledge components, from basic recall to complex reasoning
+                and application skills.
+            </div>
+            <div class="mt-4">
+                Our questions cover multiple cognitive levels and knowledge domains:
+            </div>
+
+            <div class="flex flex-wrap justify-center mt-4">
+                <div class="bg-slate-100 p-4 rounded-lg mx-2 mb-4">
+                    <h3 class="font-bold mb-2">Knowledge Domains</h3>
+                    <ul class="text-sm">
+                        <li>• Animal Behavior</li>
+                        <li>• Ecological Adaptations</li>
+                        <li>• Biological Processes</li>
+                        <li>• Environmental Science</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-100 p-4 rounded-lg mx-2 mb-4">
+                    <h3 class="font-bold mb-2">Cognitive Levels</h3>
+                    <ul class="text-sm">
+                        <li>• Recall & Recognition</li>
+                        <li>• Comprehension</li>
+                        <li>• Application</li>
+                        <li>• Analysis & Synthesis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Benchmark Tasks
+    </div>
+    <div class="w-full bg-white py-8">
+        <div class="max-w-[900px] px-6 m-auto">
+            <div class="mb-4">CleverBirds includes several evaluation tasks: </div>
+            <div class="mt-2">
+                <b>Knowledge Tracing: Predicting individual learning progress</b>
+                <br />
+                This task evaluates how well models can predict a learner's knowledge state and future performance based
+                on their response history and question characteristics.
+            </div>
+            <div class="mt-2">
+                <b>Difficulty Prediction: Estimating question difficulty levels</b>
+                <br />
+                This task assesses the ability to predict question difficulty and identify which questions are most
+                challenging for different knowledge levels.
+            </div>
+            <div class="mt-2">
+                <b>Adaptive Assessment: Dynamic question selection</b>
+                <br />
+                This task evaluates systems that can adaptively select questions based on current knowledge estimates to
+                optimize learning outcomes.
+            </div>
+
+            <div class="text-blue-500 mt-4">
+                The benchmark supports both individual and population-level analysis, enabling research into
+                personalized learning and educational technology. <br />
+                CleverBirds is designed to be accessible for researchers working on educational AI and knowledge
+                assessment.
+            </div>
+
+            <div class="flex flex-wrap justify-center mt-8">
+                <div class="bg-slate-100 p-6 rounded-lg mx-2 mb-4 max-w-md">
+                    <h3 class="font-bold mb-3">Evaluation Metrics</h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Accuracy & Precision</li>
+                        <li>• Knowledge State Estimation</li>
+                        <li>• Learning Curve Analysis</li>
+                        <li>• Difficulty Calibration</li>
+                        <li>• Transfer Learning Performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Dataset
+    </div>
+    <div class="w-full bg-white py-8">
+        <div class="max-w-[900px] px-6 m-auto">
+            <div class="border border-slate-200 p-4 rounded-lg bg-slate-100 mb-4">
+                <div class="text-2xl font-bold text-slate-700">CleverBirds Questions</div>
+                <div class="mt-2">
+                    The benchmark includes multiple-choice questions across various knowledge domains, designed to
+                    assess different cognitive levels and learning outcomes.
+                </div>
+                <div class="mt-0">
+                    Question metadata and answer keys are available in our
+                    <a class="underline font-bold ms-1" target="_blank" href="#">GitHub repository.</a>
+                </div>
+                <div class="mt-4">
+                    Each question includes difficulty ratings, domain classifications, and cognitive level indicators to
+                    support comprehensive analysis.
+                </div>
+            </div>
+
+            <div class="border border-slate-200 p-4 rounded-lg bg-slate-100 mb-4">
+                <div class="text-2xl font-bold text-slate-700">Response Data</div>
+                <div class="mt-2">
+                    The dataset includes anonymized student response patterns, learning trajectories, and performance
+                    metrics across different question types.
+                </div>
+                <div class="mt-0">
+                    Response data is structured to support knowledge tracing analysis and includes temporal information
+                    for tracking learning progress.
+                </div>
+            </div>
+
+            <div class="border border-slate-200 p-4 rounded-lg bg-slate-100 mb-4">
+                <div class="text-2xl font-bold text-slate-700">Metadata & Annotations</div>
+                <div class="mt-2">
+                    Comprehensive metadata includes question difficulty estimates, domain classifications, prerequisite
+                    knowledge requirements, and learning objective mappings.
+                </div>
+                <div class="mt-0">
+                    Expert annotations provide ground truth for question characteristics and support validation of
+                    automated difficulty prediction models.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
+        Citation
+    </div>
+    <div class="w-full bg-white py-8">
+        <div class="max-w-[900px] px-6 m-auto">
+            <div>
+                If you found CleverBirds useful, please consider citing our work:
+            </div>
+
+            <pre class="mt-4 bg-slate-100 p-4 rounded-lg text-xs text-wrap">
+@article{bossemeyer2024cleverbirds,
+<br />
+&nbsp;&nbsp;title={CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing}, 
+<br />
+&nbsp;&nbsp;author={Bossemeyer, Leonie},
+<br />
+&nbsp;&nbsp;journal={arXiv preprint},
+<br />
+&nbsp;&nbsp;year={2024},
+<br />
+}
+            </pre>
+        </div>
+    </div>
+</div>
