@@ -29,7 +29,7 @@ navigation:
   - title: Tasks
     url: #tasks
   - title: Dataset
-    url: #dataset
+    url: https://huggingface.co/datasets/bossemel/clever_birds #dataset
   - title: Citation
     url: #citation
 

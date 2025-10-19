@@ -23,15 +23,11 @@ export default function Home() {
               <sup>1</sup>University of Edinburgh <sup>2</sup>Cornell University <sup>3</sup>UMass Amherst
             </div>
             <div className="mt-8">
-              <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="#">
-                <Icons.FileEarmarkText className="w-4 h-4 inline mr-2" />
-                Paper
-              </a>
-              <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="#">
+              {/* <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="https://github.com/visipedia/clever_birds" target="_blank" rel="noopener noreferrer">
                 <Icons.Github className="w-4 h-4 inline mr-2" />
                 Code
-              </a>
-              <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="#">
+              </a> */}
+              <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer">
                 <Icons.Image className="w-4 h-4 inline mr-2" />
                 Data
               </a>
