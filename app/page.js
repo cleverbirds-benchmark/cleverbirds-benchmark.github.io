@@ -42,10 +42,10 @@ export default function Home() {
             CleverBirds
           </div>
           <div className="mt-8 text-md font-regular  mb-8 text-slate-700">
-            <b>Abstract</b>
+            {/* <b>Abstract</b> */}
             <br /><br />
 
-            Fine-grained visual recognition, essential in many expert domains, often requires specialists years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning. We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition. Collected by the citizen-science platform eBird, it offers insight into how individuals acquire expertise in complex fine-grained classification tasks. More than 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant. We release this dataset to support the development and evaluation of new methods for visual knowledge tracing. We show that tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit. CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. With it, we hope to enable new avenues for studying the development of visual expertise over time and across individuals.
+            Fine-grained visual recognition, essential in many expert domains, often requires specialists years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning. We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition. Collected by the citizen-science platform eBird, it offers insight into how individuals acquire expertise in complex fine-grained classification tasks. More than 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant. We release this dataset to support the development and evaluation of new methods for visual knowledge tracing. We show that tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit. CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. With it, we hope to enable new avenues for studying the development of visual expertise over time and across individuals. <br /><br /> More info and link to the preprint coming soon!
           </div>
 
           <div className="mt-8 mb-8">
@@ -54,7 +54,7 @@ export default function Home() {
               alt="Task Schema"
               width={800}
               height={400}
-              className="w-full h-auto rounded-lg shadow-sm"
+              className="w-full h-auto rounded-lg"
               style={{ objectFit: 'contain' }}
             />
           </div>
@@ -92,33 +92,6 @@ export default function Home() {
       </div>
 
 
-      <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
-        Key Findings
-      </div>
-      <div className="w-full bg-white py-8">
-        <div className="max-w-[900px] px-6 m-auto">
-          <div className="space-y-6">
-            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
-              <div className="text-xl font-bold text-slate-700 mb-2">User Context is More Informative</div>
-              <div className="text-slate-600">
-                Models receiving both user and species context perform best overall, with models receiving only user context close behind. User-specific context appears necessary for strong predictions.
-              </div>
-            </div>
-            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
-              <div className="text-xl font-bold text-slate-700 mb-2">Predicting Incorrect Choices is Challenging</div>
-              <div className="text-slate-600">
-                While supervised models achieve approximately 70% accuracy on the multiple-choice task, all trained models achieve less than 10% accuracy on questions where participants choose the wrong answer.
-              </div>
-            </div>
-            <div className="border border-slate-200 p-6 rounded-lg bg-slate-50">
-              <div className="text-xl font-bold text-slate-700 mb-2">Image Features Complement Context</div>
-              <div className="text-slate-600">
-                Image features help knowledge tracing for CleverBirds, but only when combined with the right context. On incorrectly answered questions, models with image features significantly outperform others.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="py-1 bg-slate-100 text-[40px] font-medium flex items-center justify-center text-center">
         Citation
