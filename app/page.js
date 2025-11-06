@@ -4,9 +4,8 @@ import Image from "next/image";
 import * as Icons from "react-bootstrap-icons";
 
 export default function Home() {
-
-  // Bird image asset IDs for the grid backdrop (80 images: 8 rows × 10 columns)
-  const birdImages = [
+  // Bird image asset IDs used in the backdrop image
+  const birdImageIds = [
     '116049931', '151561221', '119087321', '92749501', '573697681', '160571121', '537341591', '102836251', '615966434', '612007611',
     '558146061', '547612131', '619622154', '614031554', '601480841', '191838061', '175066671', '178092791', '89210001', '101165001',
     '608937156', '560669831', '615525025', '300360751', '79145831', '586246051', '66677101', '79321301', '46165631', '422231291',
@@ -20,270 +19,295 @@ export default function Home() {
   return (
     <div className="w-full">
       <div className="relative flex justify-center w-full min-h-screen overflow-hidden bg-slate-50">
-        {/* Grid backdrop */}
-        <div className="absolute inset-0 grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 grid-rows-8 gap-1 sm:gap-2 p-2 sm:p-4">
-          {birdImages.map((assetId) => (
-            <div key={assetId} className="relative w-full h-full min-h-0">
-              <Image
-                src={`/images/bird_grid/${assetId}.jpg`}
-                alt={`Bird ${assetId}`}
-                fill
-                className="object-cover rounded-sm opacity-80"
-                sizes="(max-width: 640px) 20vw, (max-width: 768px) 12.5vw, 10vw"
-              />
-            </div>
-          ))}
+        {/* Single backdrop image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/bird_backdrop.jpg"
+            alt="Bird backdrop"
+            fill
+            className="object-cover opacity-80"
+            priority
+            sizes="100vw"
+          />
         </div>
 
         {/* Content overlay */}
-        <div className="relative w-full max-w-[960px] m-auto mx-2 sm:mx-4 z-10 py-4 sm:py-8">
-          <div className="bg-white w-full py-6 sm:py-8 px-4 sm:px-8 md:px-12 rounded-2xl sm:rounded-3xl">
-            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] font-medium flex items-center">
+        <div className="relative w-full max-w-[900px] px-4 sm:px-6 m-auto z-10 py-4 sm:py-8">
+          <div className="bg-white w-full py-4 sm:py-6 px-6 sm:px-8 rounded-2xl sm:rounded-3xl">
+            {/* <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center mb-2 text-slate-800">
               CleverBirds
+            </div> */}
+            <div className="text-2xl sm:text-3xl md:text-4xl font-regular text-center mb-4 sm:mb-6 text-slate-700">
+              CleverBirds: A Multiple-Choice Benchmark for<br />Fine-grained Human Knowledge Tracing
             </div>
-            <div className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-regular mb-6 sm:mb-8 text-slate-700">
-              A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
-            </div>
-            <div className="mb-2 text-sm sm:text-base md:text-lg lg:text-xl -mt-2 flex flex-wrap gap-2 sm:gap-3 md:gap-5">
+            <div className="mb-2 text-sm sm:text-base md:text-lg -mt-2 flex flex-wrap gap-4 sm:gap-5 md:gap-6 justify-center">
               <span><a href="https://bossemel.github.io/" className="text-blue-600 hover:text-blue-800">Leonie Bossemeyer</a></span>
               <span><a href="https://www.birds.cornell.edu/home/staff/sam-heinrich/" className="text-blue-600 hover:text-blue-800">Samuel Heinrich</a></span>
               <span><a href="https://gvh.codes/" className="text-blue-600 hover:text-blue-800">Grant Van Horn</a></span>
               <span><a href="https://homepages.inf.ed.ac.uk/omacaod/" className="text-blue-600 hover:text-blue-800">Oisin Mac Aodha</a></span>
             </div>
-            <div className="mt-6 sm:mt-8">
-              <div className="flex flex-wrap gap-2">
-                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/121851" target="_blank" rel="noopener noreferrer">
-                  <Icons.FileEarmarkText className="w-4 h-4 inline mr-2" />
-                  Paper
+            <div className="mt-4 sm:mt-6">
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
+                <a
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="https://neurips.cc/virtual/2025/loc/san-diego/poster/121851"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icons.FileEarmarkText className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Paper</span>
                 </a>
-                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer">
-                  <Icons.Image className="w-4 h-4 inline mr-2" />
-                  Data
+                <a
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="https://huggingface.co/datasets/bossemel/clever_birds"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icons.Image className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Data</span>
                 </a>
-                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://huggingface.co/bossemel/cleverbirds_models" target="_blank" rel="noopener noreferrer">
-                  <Icons.Box className="w-4 h-4 inline mr-2" />
-                  Models
+                <a
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="#"
+                  rel="noopener noreferrer"
+                >
+                  <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Code</span>
                 </a>
-                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="#" rel="noopener noreferrer">
-                  <Icons.Github className="w-4 h-4 inline mr-2" />
-                  Code
+                <a
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="https://huggingface.co/bossemel/cleverbirds_models"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icons.Box className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Models</span>
                 </a>
               </div>
-              <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-4 justify-center sm:justify-end">
-                <Image src="/uoe_logo.png" alt="University of Edinburgh" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
-                <Image src="/cornell_logo.png" alt="Cornell University" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
-                <Image src="/umass_logo.png" alt="UMass Amherst" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 justify-center px-2 sm:px-4">
+                <Image src="/uoe_logo.png" alt="University of Edinburgh" width={250} height={83} className="h-10 sm:h-12 md:h-14 w-auto" />
+                <Image src="/cornell_logo.png" alt="Cornell University" width={250} height={83} className="h-10 sm:h-12 md:h-14 w-auto" />
+                <Image src="/umass_logo.png" alt="UMass Amherst" width={250} height={83} className="h-10 sm:h-12 md:h-14 w-auto" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full min-h-screen bg-white pt-8 sm:pt-12 md:pt-16 pb-8">
-        <div className="max-w-[900px] px-4 sm:px-6 m-auto">
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            Fine-grained visual recognition, essential in many expert domains, often requires specialists to undergo years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning.
-          </div>
-
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition.
-          </div>
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Task Overview
-          </div>
-
-
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/task_schema_colours.png"
-                alt="Task Schema"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
+      <div className="w-full min-h-screen bg-gray-100 pt-8 sm:pt-12 md:pt-16 pb-8">
+        <div className="max-w-[900px] px-4 sm:px-6 m-auto space-y-6">
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
+              Fine-grained visual recognition, essential in many expert domains, often requires specialists to undergo years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning.
             </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              <b>(Left) Human Learning</b>. Participants learn from CleverBirds quiz questions through repeated interactions. For each question, participants see a bird image and a list of possible species names, which may include the correct answer. After making a guess, they receive feedback with the correct answer. This process repeats across multiple questions.
-              <br />
-              <b>(Right) Knowledge Tracing</b>. The prediction task: given a participant's interaction history, the current question's image, options, and correct answer, predict the participant's guess.
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed">
+              We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition.
             </div>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Dataset Overview
-          </div>
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Task Overview
+            </h2>
 
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            Collected by the citizen-science platform eBird, CleverBirds offers insight into how individuals acquire expertise in complex fine-grained classification tasks.
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/world_map.png"
-                alt="World Map"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              World map showing quiz locations using Hex 3 polygonal bins, where color intensity encodes the number of interactions per location cell.
-            </div>
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/quiz_examples.png"
-                alt="Quiz Examples"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
-            </div>
-          </div>
-
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
-          </div>
-
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Dataset Statistics
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 mt-8">
-            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">40,144</div>
-              <div className="text-xs sm:text-sm text-slate-600">Participants</div>
-            </div>
-            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">17,859,392</div>
-              <div className="text-xs sm:text-sm text-slate-600">Total Interactions</div>
-            </div>
-            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">10,779</div>
-              <div className="text-xs sm:text-sm text-slate-600">Bird Species</div>
-            </div>
-            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">444</div>
-              <div className="text-xs sm:text-sm text-slate-600">Avg Questions/User</div>
-            </div>
-          </div>
-
-
-
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Analysis
-          </div>
-
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            We release CleverBirds to support the development and evaluation of new methods for visual knowledge tracing.
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/confused_pairs.png"
-                alt="Confused Species Pairs"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              Top 5 most frequently confused species pairs for species with {'>'} 1,000 interactions. From top to bottom and left to right: American Crow vs Fish Crow, Pin-tailed Snipe vs Common Snipe, Redpoll (Hoary) vs Redpoll (Common), Ross's Goose vs Snow Goose, Sharp-shinned Hawk vs Cooper's Hawk, and Short-tailed Shearwater vs Sooty Shearwater. Images taken from eBird.
-            </div>
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/data_eda.png"
-                alt="Data Exploratory Analysis"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              Left to right: Cumulative distribution of quizzes attempted per user on a log scale, distribution of users' average accuracies, distribution of species-wise average user accuracies, and average user accuracy by number of prior exposures to a species.
-            </div>
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4 flex flex-col md:flex-row gap-2">
-              <div className="flex-1 md:flex-[0.51]">
+            <div className="mt-6">
+              <div className="w-full mb-4">
                 <Image
-                  src="/images/ebirds_quiz-quality_comp.png"
-                  alt="Quality Comparison"
-                  width={600}
+                  src="/images/task_schema_colours.png"
+                  alt="Task Schema"
+                  width={1200}
                   height={600}
                   className="w-full h-auto rounded-lg"
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <div className="flex-1 md:flex-[0.47]">
+              <div className="text-sm text-slate-600 text-left mt-1">
+                <b>(Left) Human Learning</b>. Participants learn from CleverBirds quiz questions through repeated interactions. For each question, participants see a bird image and a list of possible species names, which may include the correct answer. After making a guess, they receive feedback with the correct answer. This process repeats across multiple questions.
+                <br />
+                <b>(Right) Knowledge Tracing</b>. The prediction task: given a participant's interaction history, the current question's image, options, and correct answer, predict the participant's guess.
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Dataset Overview
+            </h2>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              Collected by the citizen-science platform eBird, CleverBirds offers insight into how individuals acquire expertise in complex fine-grained classification tasks.
+            </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
                 <Image
-                  src="/images/quality_analysis_panels.png"
-                  alt="Quality Analysis"
-                  width={600}
+                  src="/images/world_map.png"
+                  alt="World Map"
+                  width={1200}
                   height={600}
                   className="w-full h-auto rounded-lg"
                   style={{ objectFit: 'contain' }}
                 />
               </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                World map showing quiz locations using Hex 3 polygonal bins, where color intensity encodes the number of interactions per location cell.
+              </div>
             </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              <b>(Left)</b> Comparison of lower quality quiz images (upper row) to high quality ones from eBird species' pages (bottom row). Quiz questions may contain images showing birds from a distance, partially obscured, or at uncommon angles. Species from left to right: Bufflehead, California Towhee, Dark-eyed Junco, and Blue-gray Gnatcatcher.
-              <br />
-              <b>(Right)</b> Average user accuracy for each quality rating. Higher quality images are easier for users on average.
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/quiz_examples.png"
+                  alt="Quiz Examples"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
+              </div>
             </div>
-          </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Knowledge Tracing Results
-          </div>
-
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            Tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit.
-          </div>
-
-          <div className="mt-8 mb-8">
-            <div className="w-full mb-4">
-              <Image
-                src="/images/results.png"
-                alt="Results"
-                width={1200}
-                height={600}
-                className="w-full h-auto rounded-lg"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className="text-sm text-slate-600 text-left mt-1">
-              Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
+            <div className="text-md font-regular text-slate-700 leading-relaxed">
+              Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
             </div>
           </div>
 
-          <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
-            CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Dataset Statistics
+            </h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 max-w-3xl mx-auto">
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">40,144</div>
+                <div className="text-xs text-slate-600">Participants</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">17,859,392</div>
+                <div className="text-xs text-slate-600">Total Interactions</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">10,779</div>
+                <div className="text-xs text-slate-600">Bird Species</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">444</div>
+                <div className="text-xs text-slate-600">Avg Questions/User</div>
+              </div>
+            </div>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Citation
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Analysis
+            </h2>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              We release CleverBirds to support the development and evaluation of new methods for visual knowledge tracing.
+            </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/confused_pairs.png"
+                  alt="Confused Species Pairs"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                Top 5 most frequently confused species pairs for species with {'>'} 1,000 interactions. From top to bottom and left to right: American Crow vs Fish Crow, Pin-tailed Snipe vs Common Snipe, Redpoll (Hoary) vs Redpoll (Common), Ross's Goose vs Snow Goose, Sharp-shinned Hawk vs Cooper's Hawk, and Short-tailed Shearwater vs Sooty Shearwater. Images taken from eBird.
+              </div>
+            </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/data_eda.png"
+                  alt="Data Exploratory Analysis"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                Left to right: Cumulative distribution of quizzes attempted per user on a log scale, distribution of users' average accuracies, distribution of species-wise average user accuracies, and average user accuracy by number of prior exposures to a species.
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <div className="w-full mb-4 flex flex-col md:flex-row gap-2">
+                <div className="flex-1 md:flex-[0.51]">
+                  <Image
+                    src="/images/ebirds_quiz-quality_comp.png"
+                    alt="Quality Comparison"
+                    width={600}
+                    height={600}
+                    className="w-full h-auto rounded-lg"
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+                <div className="flex-1 md:flex-[0.47]">
+                  <Image
+                    src="/images/quality_analysis_panels.png"
+                    alt="Quality Analysis"
+                    width={600}
+                    height={600}
+                    className="w-full h-auto rounded-lg"
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                <b>(Left)</b> Comparison of lower quality quiz images (upper row) to high quality ones from eBird species' pages (bottom row). Quiz questions may contain images showing birds from a distance, partially obscured, or at uncommon angles. Species from left to right: Bufflehead, California Towhee, Dark-eyed Junco, and Blue-gray Gnatcatcher.
+                <br />
+                <b>(Right)</b> Average user accuracy for each quality rating. Higher quality images are easier for users on average.
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 mb-8">
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Knowledge Tracing Results
+            </h2>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              Tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit.
+            </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/results.png"
+                  alt="Results"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
+              </div>
+            </div>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed">
+              CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Citation
+            </h2>
+
             <div className="text-md font-regular text-slate-700 mb-4">
               If you found CleverBirds useful, please consider citing our work:
             </div>
@@ -303,16 +327,16 @@ export default function Home() {
             </pre>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
-            Media Credits
-          </div>
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Media Credits
+            </h2>
 
-          <div className="mt-8 mb-8">
             <div className="text-sm text-slate-700">
               We used the following recordings from Cornell Lab of Ornithology | Macaulay Library:
               <br /><br />
               {[
-                ...birdImages.map((id) => `ML${id}`),
+                ...birdImageIds.map((id) => `ML${id}`),
                 'ML614845753', 'ML624914011', 'ML624836085',
                 'ML615927847', 'ML621578731', 'ML617550217', 'ML621294128',
                 'ML39633601', 'ML50619491', 'ML38293181', 'ML226495281',
