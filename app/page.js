@@ -108,7 +108,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Task Overview
+              Task
             </h2>
 
             <div className="mt-6">
@@ -128,15 +128,50 @@ export default function Home() {
                 <b>(Right) Knowledge Tracing</b>. The prediction task: given a participant's interaction history, the current question's image, options, and correct answer, predict the participant's guess.
               </div>
             </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/quiz_examples.png"
+                  alt="Quiz Examples"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
+              </div>
+            </div>
           </div>
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Dataset Overview
+              Dataset
             </h2>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
               Collected by the citizen-science platform eBird, CleverBirds offers insight into how individuals acquire expertise in complex fine-grained classification tasks.
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 mb-6 max-w-3xl mx-auto">
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">40,144</div>
+                <div className="text-xs text-slate-600">Participants</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">17,859,392</div>
+                <div className="text-xs text-slate-600">Total Interactions</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">10,779</div>
+                <div className="text-xs text-slate-600">Bird Species</div>
+              </div>
+              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
+                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">444</div>
+                <div className="text-xs text-slate-600">Avg Questions/User</div>
+              </div>
             </div>
 
             <div className="mt-6 mb-6">
@@ -158,8 +193,8 @@ export default function Home() {
             <div className="mt-6 mb-6">
               <div className="w-full mb-4">
                 <Image
-                  src="/images/quiz_examples.png"
-                  alt="Quiz Examples"
+                  src="/images/data_eda.png"
+                  alt="Data Exploratory Analysis"
                   width={1200}
                   height={600}
                   className="w-full h-auto rounded-lg"
@@ -167,47 +202,8 @@ export default function Home() {
                 />
               </div>
               <div className="text-sm text-slate-600 text-left mt-1">
-                Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
+                Left to right: Cumulative distribution of quizzes attempted per user on a log scale, distribution of users' average accuracies, distribution of species-wise average user accuracies, and average user accuracy by number of prior exposures to a species.
               </div>
-            </div>
-
-            <div className="text-md font-regular text-slate-700 leading-relaxed">
-              Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Dataset Statistics
-            </h2>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 max-w-3xl mx-auto">
-              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">40,144</div>
-                <div className="text-xs text-slate-600">Participants</div>
-              </div>
-              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">17,859,392</div>
-                <div className="text-xs text-slate-600">Total Interactions</div>
-              </div>
-              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">10,779</div>
-                <div className="text-xs text-slate-600">Bird Species</div>
-              </div>
-              <div className="bg-gray-100 p-2 sm:p-3 rounded-lg text-center">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-slate-700">444</div>
-                <div className="text-xs text-slate-600">Avg Questions/User</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Analysis
-            </h2>
-
-            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              We release CleverBirds to support the development and evaluation of new methods for visual knowledge tracing.
             </div>
 
             <div className="mt-6 mb-6">
@@ -227,22 +223,6 @@ export default function Home() {
             </div>
 
             <div className="mt-6 mb-6">
-              <div className="w-full mb-4">
-                <Image
-                  src="/images/data_eda.png"
-                  alt="Data Exploratory Analysis"
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto rounded-lg"
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <div className="text-sm text-slate-600 text-left mt-1">
-                Left to right: Cumulative distribution of quizzes attempted per user on a log scale, distribution of users' average accuracies, distribution of species-wise average user accuracies, and average user accuracy by number of prior exposures to a species.
-              </div>
-            </div>
-
-            <div className="mt-6">
               <div className="w-full mb-4 flex flex-col md:flex-row gap-2">
                 <div className="flex-1 md:flex-[0.51]">
                   <Image
@@ -271,7 +251,21 @@ export default function Home() {
                 <b>(Right)</b> Average user accuracy for each quality rating. Higher quality images are easier for users on average.
               </div>
             </div>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed">
+              Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
+            </div>
           </div>
+          {/* 
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
+              Analysis
+            </h2>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed">
+              We release CleverBirds to support the development and evaluation of new methods for visual knowledge tracing.
+            </div>
+          </div> */}
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
@@ -297,6 +291,16 @@ export default function Home() {
                 Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
               </div>
             </div>
+
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
+              <b>Key findings:</b>
+            </div>
+            <ul className="list-disc pl-6 text-md font-regular text-slate-700 leading-relaxed space-y-2 mb-4">
+              <li>User context outperforms species context for prediction</li>
+              <li>Random forests achieve 80%+ precision when predicting errors</li>
+              <li>Image features boost performance on incorrect answers</li>
+              <li>Predicting exact mistakes remains difficult (&lt; 25% accuracy)</li>
+            </ul>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed">
               CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
@@ -327,23 +331,24 @@ export default function Home() {
             </pre>
           </div>
 
-          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Media Credits
-            </h2>
-
-            <div className="text-sm text-slate-700">
-              We used the following recordings from Cornell Lab of Ornithology | Macaulay Library:
-              <br /><br />
-              {[
-                ...birdImageIds.map((id) => `ML${id}`),
-                'ML614845753', 'ML624914011', 'ML624836085',
-                'ML615927847', 'ML621578731', 'ML617550217', 'ML621294128',
-                'ML39633601', 'ML50619491', 'ML38293181', 'ML226495281',
-                'ML30091521', 'ML117787821', 'ML302310521', 'ML83984151', 'ML141517111', 'ML284199291',
-                'ML51777001', 'ML26854421', 'ML301728521', 'ML290513131', 'ML50787721', 'ML174404171',
-                'ML463868861', 'ML613090562'
-              ].join(', ')}.
+          <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="text-[10px] sm:text-xs text-slate-500">
+              {/* <div className="mb-1 text-xs font-medium text-slate-600">Media Credits</div> */}
+              <div className="text-[10px] sm:text-xs block leading-relaxed">
+                We used the following recordings from Cornell Lab of Ornithology | Macaulay Library:{' '}
+                {[
+                  ...birdImageIds.map((id) => `ML${id}`),
+                  'ML614845753', 'ML624914011', 'ML624836085',
+                  'ML615927847', 'ML621578731', 'ML617550217', 'ML621294128',
+                  'ML39633601', 'ML50619491', 'ML38293181', 'ML226495281',
+                  'ML30091521', 'ML117787821', 'ML302310521', 'ML83984151', 'ML141517111', 'ML284199291',
+                  'ML51777001', 'ML26854421', 'ML301728521', 'ML290513131', 'ML50787721', 'ML174404171',
+                  'ML463868861', 'ML613090562'
+                ].join(', ')}.
+              </div>
+              <div className="mt-3 text-[10px] sm:text-xs block leading-relaxed">
+                Project page adapted from INQUIRE: A Natural World Text-to-Image Retrieval Benchmark — Vendrow et al., NeurIPS 37 (2024).
+              </div>
             </div>
           </div>
         </div>
