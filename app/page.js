@@ -18,10 +18,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-w-[720px]">
-      <div className="relative flex justify-center w-full h-screen overflow-hidden bg-slate-50">
+    <div className="w-full">
+      <div className="relative flex justify-center w-full min-h-screen overflow-hidden bg-slate-50">
         {/* Grid backdrop */}
-        <div className="absolute inset-0 grid grid-cols-10 grid-rows-8 gap-2 p-4">
+        <div className="absolute inset-0 grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 grid-rows-8 gap-1 sm:gap-2 p-2 sm:p-4">
           {birdImages.map((assetId) => (
             <div key={assetId} className="relative w-full h-full min-h-0">
               <Image
@@ -29,55 +29,58 @@ export default function Home() {
                 alt={`Bird ${assetId}`}
                 fill
                 className="object-cover rounded-sm opacity-80"
-                sizes="(max-width: 768px) 10vw, 10vw"
+                sizes="(max-width: 640px) 20vw, (max-width: 768px) 12.5vw, 10vw"
               />
             </div>
           ))}
         </div>
 
         {/* Content overlay */}
-        <div className="relative w-full max-w-[960px] m-auto mx-4 z-10">
-          <div className="bg-white w-full py-8 px-12 rounded-3xl">
-            <div className="text-[80px] font-medium flex items-center">
+        <div className="relative w-full max-w-[960px] m-auto mx-2 sm:mx-4 z-10 py-4 sm:py-8">
+          <div className="bg-white w-full py-6 sm:py-8 px-4 sm:px-8 md:px-12 rounded-2xl sm:rounded-3xl">
+            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] font-medium flex items-center">
               CleverBirds
             </div>
-            <div className="mt-2 text-3xl font-regular mb-8 text-slate-700">
+            <div className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-regular mb-6 sm:mb-8 text-slate-700">
               A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
             </div>
-            <div className="mb-2 text-xl -mt-2">
-              <span className="mr-5"><a href="https://bossemel.github.io/" className="text-blue-600 hover:text-blue-800">Leonie Bossemeyer</a></span><span className="mr-5"><a href="https://www.birds.cornell.edu/home/staff/sam-heinrich/" className="text-blue-600 hover:text-blue-800">Samuel Heinrich</a></span><span className="mr-5"><a href="https://gvh.codes/" className="text-blue-600 hover:text-blue-800">Grant Van Horn</a></span><a href="https://homepages.inf.ed.ac.uk/omacaod/" className="text-blue-600 hover:text-blue-800">Oisin Mac Aodha</a>
+            <div className="mb-2 text-sm sm:text-base md:text-lg lg:text-xl -mt-2 flex flex-wrap gap-2 sm:gap-3 md:gap-5">
+              <span><a href="https://bossemel.github.io/" className="text-blue-600 hover:text-blue-800">Leonie Bossemeyer</a></span>
+              <span><a href="https://www.birds.cornell.edu/home/staff/sam-heinrich/" className="text-blue-600 hover:text-blue-800">Samuel Heinrich</a></span>
+              <span><a href="https://gvh.codes/" className="text-blue-600 hover:text-blue-800">Grant Van Horn</a></span>
+              <span><a href="https://homepages.inf.ed.ac.uk/omacaod/" className="text-blue-600 hover:text-blue-800">Oisin Mac Aodha</a></span>
             </div>
-            <div className="mt-8">
-              <div>
-                <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/121851" target="_blank" rel="noopener noreferrer">
+            <div className="mt-6 sm:mt-8">
+              <div className="flex flex-wrap gap-2">
+                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/121851" target="_blank" rel="noopener noreferrer">
                   <Icons.FileEarmarkText className="w-4 h-4 inline mr-2" />
                   Paper
                 </a>
-                <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer">
+                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer">
                   <Icons.Image className="w-4 h-4 inline mr-2" />
                   Data
                 </a>
-                <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="https://huggingface.co/bossemel/cleverbirds_models" target="_blank" rel="noopener noreferrer">
+                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="https://huggingface.co/bossemel/cleverbirds_models" target="_blank" rel="noopener noreferrer">
                   <Icons.Box className="w-4 h-4 inline mr-2" />
                   Models
                 </a>
-                <a className="bg-slate-600 rounded-full px-4 py-1 text-white inline-flex items-center h-8 text-sm mr-2" href="#" rel="noopener noreferrer">
+                <a className="bg-slate-600 rounded-full px-3 sm:px-4 py-1 text-white inline-flex items-center h-8 text-xs sm:text-sm" href="#" rel="noopener noreferrer">
                   <Icons.Github className="w-4 h-4 inline mr-2" />
                   Code
                 </a>
               </div>
-              <div className="flex items-center gap-5 mt-4 justify-end">
-                <Image src="/uoe_logo.png" alt="University of Edinburgh" width={250} height={83} className="h-16 w-auto" />
-                <Image src="/cornell_logo.png" alt="Cornell University" width={250} height={83} className="h-16 w-auto" />
-                <Image src="/umass_logo.png" alt="UMass Amherst" width={250} height={83} className="h-16 w-auto" />
+              <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-4 justify-center sm:justify-end">
+                <Image src="/uoe_logo.png" alt="University of Edinburgh" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
+                <Image src="/cornell_logo.png" alt="Cornell University" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
+                <Image src="/umass_logo.png" alt="UMass Amherst" width={250} height={83} className="h-12 sm:h-14 md:h-16 w-auto" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full min-h-screen bg-white pt-16 pb-8">
-        <div className="max-w-[900px] px-6 m-auto">
+      <div className="w-full min-h-screen bg-white pt-8 sm:pt-12 md:pt-16 pb-8">
+        <div className="max-w-[900px] px-4 sm:px-6 m-auto">
           <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
             Fine-grained visual recognition, essential in many expert domains, often requires specialists to undergo years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning.
           </div>
@@ -85,7 +88,7 @@ export default function Home() {
           <div className="text-md font-regular text-slate-700 leading-relaxed mb-8">
             We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition.
           </div>
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Task Overview
           </div>
 
@@ -109,7 +112,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Dataset Overview
           </div>
 
@@ -153,32 +156,32 @@ export default function Home() {
             Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Dataset Statistics
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-8">
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <div className="text-2xl font-bold text-slate-700">40,144</div>
-              <div className="text-sm text-slate-600">Participants</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 mt-8">
+            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">40,144</div>
+              <div className="text-xs sm:text-sm text-slate-600">Participants</div>
             </div>
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <div className="text-2xl font-bold text-slate-700">17,859,392</div>
-              <div className="text-sm text-slate-600">Total Interactions</div>
+            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">17,859,392</div>
+              <div className="text-xs sm:text-sm text-slate-600">Total Interactions</div>
             </div>
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <div className="text-2xl font-bold text-slate-700">10,779</div>
-              <div className="text-sm text-slate-600">Bird Species</div>
+            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">10,779</div>
+              <div className="text-xs sm:text-sm text-slate-600">Bird Species</div>
             </div>
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <div className="text-2xl font-bold text-slate-700">444</div>
-              <div className="text-sm text-slate-600">Avg Questions/User</div>
+            <div className="bg-gray-100 p-3 sm:p-4 rounded-lg text-center">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700">444</div>
+              <div className="text-xs sm:text-sm text-slate-600">Avg Questions/User</div>
             </div>
           </div>
 
 
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Analysis
           </div>
 
@@ -219,8 +222,8 @@ export default function Home() {
           </div>
 
           <div className="mt-8 mb-8">
-            <div className="w-full mb-4 flex gap-2">
-              <div className="flex-1" style={{ flex: '0.51' }}>
+            <div className="w-full mb-4 flex flex-col md:flex-row gap-2">
+              <div className="flex-1 md:flex-[0.51]">
                 <Image
                   src="/images/ebirds_quiz-quality_comp.png"
                   alt="Quality Comparison"
@@ -230,7 +233,7 @@ export default function Home() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <div className="flex-1" style={{ flex: '0.47' }}>
+              <div className="flex-1 md:flex-[0.47]">
                 <Image
                   src="/images/quality_analysis_panels.png"
                   alt="Quality Analysis"
@@ -248,7 +251,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Knowledge Tracing Results
           </div>
 
@@ -276,7 +279,7 @@ export default function Home() {
             CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Citation
           </div>
 
@@ -285,7 +288,7 @@ export default function Home() {
               If you found CleverBirds useful, please consider citing our work:
             </div>
 
-            <pre className="mt-4 bg-gray-100 p-4 rounded-lg text-xs text-wrap">
+            <pre className="mt-4 bg-gray-100 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto">
               @article{"{"}bossemeyer2025cleverbirds,
               <br />
               &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
@@ -300,7 +303,7 @@ export default function Home() {
             </pre>
           </div>
 
-          <div className="py-2 bg-gray-100 text-slate-700 text-[32px] font-medium flex items-center justify-center text-center my-8">
+          <div className="py-2 bg-gray-100 text-slate-700 text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium flex items-center justify-center text-center my-6 sm:my-8">
             Media Credits
           </div>
 
