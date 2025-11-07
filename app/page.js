@@ -67,9 +67,9 @@ export default function Home() {
                   <span>Data</span>
                 </a>
                 <a
-                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  className="bg-gray-100 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-400 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm cursor-not-allowed opacity-60"
                   href="#"
-                  rel="noopener noreferrer"
+                  onClick={(e) => e.preventDefault()}
                 >
                   <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Code</span>
@@ -306,7 +306,6 @@ export default function Home() {
               CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
             </div>
           </div>
-
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
               Citation
