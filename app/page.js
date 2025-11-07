@@ -317,15 +317,13 @@ export default function Home() {
             </div>
 
             <pre className="mt-4 bg-gray-100 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto">
-              @article{"{"}bossemeyer2025cleverbirds,
+              @inproceedings{"{"}bossemeyercleverbirds,
               <br />
               &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
               <br />
               &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin{"}"},
               <br />
-              &nbsp;&nbsp;journal={"{"}arXiv preprint{"}"},
-              <br />
-              &nbsp;&nbsp;year={"{"}2025{"}"},
+              &nbsp;&nbsp;booktitle={"{"}The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track{"}"}
               <br />
               {"}"}
             </pre>
