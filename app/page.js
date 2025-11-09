@@ -98,38 +98,20 @@ export default function Home() {
         <div className="max-w-[900px] px-4 sm:px-6 m-auto space-y-6">
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
-              Fine-grained visual recognition, essential in many expert domains, often requires specialists to undergo years of dedicated training. Modeling the progression of such expertise remains challenging, and accurately inferring a learner's knowledge state is a key step toward understanding visual learning.
+              Fine-grained visual recognition skills are vital to many expert domains, yet understanding how humans acquire such expertise remains an open challenge. We introduce <b>CleverBirds</b>, a large-scale benchmark for knowledge tracing in fine-grained visual recognition. The dataset contains 17.9 million multiple-choice questions from 40,144 participants across 10,779 bird species, with an average of 444 questions per participant.
             </div>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed">
-              We introduce <b>CleverBirds</b>, a large-scale knowledge tracing benchmark for fine-grained bird recognition.
+              CleverBirds enables us to study how individuals learn to recognize fine-grained visual distinctions over time. We evaluate state-of-the-art knowledge tracing methods on this benchmark and find that tracking learner knowledge across participant subgroups and question types is challenging, with different forms of contextual information providing varying degrees of predictive benefit.
             </div>
           </div>
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Task
-            </h2>
-
-            <div className="mt-6">
-              <div className="w-full mb-4">
-                <Image
-                  src="/images/task_schema_colours.png"
-                  alt="Task Schema"
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto rounded-lg"
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <div className="text-sm text-slate-600 text-left mt-1">
-                <b>(Left) Human Learning</b>. Participants learn from CleverBirds quiz questions through repeated interactions. For each question, participants see a bird image and a list of possible species names, which may include the correct answer. After making a guess, they receive feedback with the correct answer. This process repeats across multiple questions.
-                <br />
-                <b>(Right) Knowledge Tracing</b>. The prediction task: given a participant's interaction history, the current question's image, options, and correct answer, predict the participant's guess.
-              </div>
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              We collected CleverBirds from the Photo and Sound Quiz feature of the eBird citizen science platform. In this quiz, participants are shown a bird image and asked to identify the species from a list of options. They receive immediate feedback on the correct answer after each response. Quiz responses were collected from March 2018 to October 2024.
             </div>
 
-            <div className="mt-6 mb-6">
+            <div className="mt-6">
               <div className="w-full mb-4">
                 <Image
                   src="/images/quiz_examples.png"
@@ -141,18 +123,17 @@ export default function Home() {
                 />
               </div>
               <div className="text-sm text-slate-600 text-left mt-1">
-                Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
+                <b>Figure 1:</b> Three examples of quiz questions from CleverBirds. Each question has four species options plus a "None of the above" option. The correct answer is indicated in <span style={{ color: '#9ACD32' }}>green</span>. All five options are valid answers, and the candidate species differ for each question.
               </div>
             </div>
+
+
           </div>
 
-          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Dataset
-            </h2>
 
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              Collected by the citizen-science platform eBird, CleverBirds offers insight into how individuals acquire expertise in complex fine-grained classification tasks.
+              CleverBirds is one of the largest benchmarks for visual knowledge tracing, with substantially more learnable concepts than existing datasets. The dataset captures learning patterns across a diverse participant population, enabling us to study how expertise develops over time.
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 mb-6 max-w-3xl mx-auto">
@@ -174,6 +155,10 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              Participants can choose which location they want to be quizzed on, and quiz locations are distributed globally, as shown below.
+            </div>
+
             <div className="mt-6 mb-6">
               <div className="w-full mb-4">
                 <Image
@@ -186,94 +171,48 @@ export default function Home() {
                 />
               </div>
               <div className="text-sm text-slate-600 text-left mt-1">
-                World map showing quiz locations using Hex 3 polygonal bins, where color intensity encodes the number of interactions per location cell.
+                <b>Figure 2:</b> World map showing quiz locations using Hex 3 polygonal bins, where color intensity encodes the number of interactions per location cell.
               </div>
             </div>
 
-            <div className="mt-6 mb-6">
-              <div className="w-full mb-4">
-                <Image
-                  src="/images/data_eda.png"
-                  alt="Data Exploratory Analysis"
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto rounded-lg"
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <div className="text-sm text-slate-600 text-left mt-1">
-                Left to right: Cumulative distribution of quizzes attempted per user on a log scale, distribution of users' average accuracies, distribution of species-wise average user accuracies, and average user accuracy by number of prior exposures to a species.
-              </div>
-            </div>
+            {/* <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              We also observe that users are typically well engaged in the quiz, with more than half of our users answering more than 100 quiz questions, demonstrating long-range learning patterns.
+            </div> */}
 
-            <div className="mt-6 mb-6">
-              <div className="w-full mb-4">
-                <Image
-                  src="/images/confused_pairs.png"
-                  alt="Confused Species Pairs"
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto rounded-lg"
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <div className="text-sm text-slate-600 text-left mt-1">
-                Top 5 most frequently confused species pairs for species with {'>'} 1,000 interactions. From top to bottom and left to right: American Crow vs Fish Crow, Pin-tailed Snipe vs Common Snipe, Redpoll (Hoary) vs Redpoll (Common), Ross's Goose vs Snow Goose, Sharp-shinned Hawk vs Cooper's Hawk, and Short-tailed Shearwater vs Sooty Shearwater. Images taken from eBird.
-              </div>
-            </div>
-
-            <div className="mt-6 mb-6">
-              <div className="w-full mb-4 flex flex-col md:flex-row gap-2">
-                <div className="flex-1 md:flex-[0.51]">
-                  <Image
-                    src="/images/ebirds_quiz-quality_comp.png"
-                    alt="Quality Comparison"
-                    width={600}
-                    height={600}
-                    className="w-full h-auto rounded-lg"
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <div className="flex-1 md:flex-[0.47]">
-                  <Image
-                    src="/images/quality_analysis_panels.png"
-                    alt="Quality Analysis"
-                    width={600}
-                    height={600}
-                    className="w-full h-auto rounded-lg"
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-              </div>
-              <div className="text-sm text-slate-600 text-left mt-1">
-                <b>(Left)</b> Comparison of lower quality quiz images (upper row) to high quality ones from eBird species' pages (bottom row). Quiz questions may contain images showing birds from a distance, partially obscured, or at uncommon angles. Species from left to right: Bufflehead, California Towhee, Dark-eyed Junco, and Blue-gray Gnatcatcher.
-                <br />
-                <b>(Right)</b> Average user accuracy for each quality rating. Higher quality images are easier for users on average.
-              </div>
-            </div>
-
-            <div className="text-md font-regular text-slate-700 leading-relaxed">
-              Over 40,000 participants have engaged in the quiz, answering over 17 million multiple-choice questions spanning 10,000+ bird species, with long-range learning patterns across an average of 400+ questions per participant.
-            </div>
           </div>
-          {/* 
-          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Analysis
-            </h2>
 
-            <div className="text-md font-regular text-slate-700 leading-relaxed">
-              We release CleverBirds to support the development and evaluation of new methods for visual knowledge tracing.
-            </div>
-          </div> */}
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Knowledge Tracing Results
-            </h2>
-
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              Tracking learners' knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information offering varying degrees of predictive benefit.
+              The knowledge tracing task requires predicting a participant's response given their interaction history, the current question image, candidate species options, and the correct answer. Models are provided with the participant's past responses and have to infer their evolving knowledge state to predict their guess.
+            </div>
+
+            <div className="mt-6 mb-6">
+              <div className="w-full mb-4">
+                <Image
+                  src="/images/task_schema_colours.png"
+                  alt="Task Schema"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto rounded-lg"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="text-sm text-slate-600 text-left mt-1">
+                <b>Figure 3:</b> <b>(Left) Human Learning</b>. Participants learn from CleverBirds quiz questions through repeated interactions. For each question, participants see a bird image and a list of possible species names, which may include the correct answer. After making a guess, they receive feedback with the correct answer. <b>(Right) Knowledge Tracing</b>. The prediction task: given a participant's interaction history, the current question's image, options, and correct answer, predict the participant's guess.
+              </div>
+            </div>
+
+            {/* <div className="text-md font-regular text-slate-700 leading-relaxed mt-6">
+              
+              This history is then coupled with the current quiz question and passed to the model, which is tasked to predict the user's guess. By modeling participants' responses over time, we can track how their knowledge of different bird species evolves, identify which concepts are easier or harder to learn, and understand how contextual factors influence learning outcomes.
+            </div> */}
+
+          </div>
+
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
+            <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
+              We evaluated state-of-the-art knowledge tracing methods on CleverBirds, including both binary classification and multiple-choice prediction tasks. We found that tracking learner knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information providing varying degrees of predictive benefit.
             </div>
 
             <div className="mt-6 mb-6">
@@ -288,29 +227,15 @@ export default function Home() {
                 />
               </div>
               <div className="text-sm text-slate-600 text-left mt-1">
-                Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
+                <b>Figure 4:</b> Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
               </div>
             </div>
 
-            <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
-              <b>Key findings:</b>
-            </div>
-            <ul className="list-disc pl-6 text-md font-regular text-slate-700 leading-relaxed space-y-2 mb-4">
-              <li>User context outperforms species context for prediction</li>
-              <li>Random forests achieve 80%+ precision when predicting errors</li>
-              <li>Image features boost performance on incorrect answers</li>
-              <li>Predicting exact mistakes remains difficult (&lt; 25% accuracy)</li>
-            </ul>
-
             <div className="text-md font-regular text-slate-700 leading-relaxed">
-              CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. We hope it enables new avenues for studying the development of visual expertise over time and across individuals.
+              We release this dataset to support the development and evaluation of new methods for visual knowledge tracing. CleverBirds is among the largest benchmarks of its kind, offering a substantially higher number of learnable concepts. With it, we hope to enable new avenues for studying the development of visual expertise over time and across individuals.
             </div>
           </div>
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-regular text-slate-800 mb-6 text-center tracking-tight">
-              Citation
-            </h2>
-
             <div className="text-md font-regular text-slate-700 mb-4">
               If you found CleverBirds useful, please consider citing our work:
             </div>

@@ -4,14 +4,14 @@ Create a composite backdrop image from bird grid images.
 Arranges 80 bird images in an 8x10 grid to create a single backdrop image.
 """
 
-from PIL import Image
+from PIL import Image, ImageOps
 import os
 from pathlib import Path
 
 # Bird image asset IDs in order (8 rows × 10 columns)
 bird_image_ids = [
     '573697681', '428128071', '88531421', '211835021', '610451060', '547612131', '564023871', '116768801', '61383711', '316745031',
-    '246875981', '92749501', '79321301', '614371301', '289306081', '614584584', '586246051', '300360751', '608835731', '178092791',
+    '246875981', '92749501', '174757801', '614371301', '289306081', '614584584', '586246051', '300360751', '608835731', '178092791',
     '422231291', '612007611', '117594561', '27999251', '179573301', '611679955', '46165631', '551526071', '101165001', '134292171',
     '168160141', '450270361', '26554101', '610427401', '89210001', '537341591', '165370941', '614031554', '586608881', '586481701',
     '544108441', '235493731', '186111231', '560669831', '69662191', '406173031', '215047171', '327232121', '146864981', '160575501',
@@ -48,12 +48,12 @@ def create_backdrop():
     if len(bird_images) != rows * cols:
         print(f"Warning: Expected {rows * cols} images, got {len(bird_images)}")
     
-    # Get dimensions from first image
+    # Get dimensions from first image to determine cell size
     if not bird_images:
         print("Error: No images loaded!")
         return
     
-    # Resize all images to the same size (use the first image's size or a standard size)
+    # Use the first image's size as the standard cell size
     first_img = bird_images[0]
     cell_width, cell_height = first_img.size
     
@@ -76,11 +76,11 @@ def create_backdrop():
         x = col * (cell_width + gap)
         y = row * (cell_height + gap)
         
-        # Resize image to fit cell if needed
-        if img.size != (cell_width, cell_height):
-            img = img.resize((cell_width, cell_height), Image.Resampling.LANCZOS)
+        # Crop and resize image to fit cell while maintaining aspect ratio
+        # ImageOps.fit crops the image to fill the size while maintaining aspect ratio
+        img_fitted = ImageOps.fit(img, (cell_width, cell_height), Image.Resampling.LANCZOS)
         
-        backdrop.paste(img, (x, y))
+        backdrop.paste(img_fitted, (x, y))
     
     # Resize to a reasonable size for web use (e.g., 1920x1080 or maintain aspect ratio)
     # Calculate a good size that maintains aspect ratio
