@@ -2,18 +2,36 @@
 
 import Image from "next/image";
 import * as Icons from "react-bootstrap-icons";
+import { useState } from "react";
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+
+  const citationText = `@inproceedings{bossemeyercleverbirds,
+  title={CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing},
+  author={Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track}
+}`;
+
+  const handleCopyCitation = async () => {
+    try {
+      await navigator.clipboard.writeText(citationText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy citation:', err);
+    }
+  };
   // Bird image asset IDs used in the backdrop image
   const birdImageIds = [
-    '573697681', '428128071', '88531421', '211835021', '610451060', '547612131', '564023871', '116768801', '61383711', '316745031',
-    '246875981', '92749501', '79321301', '614371301', '289306081', '614584584', '586246051', '300360751', '608835731', '178092791',
-    '422231291', '612007611', '117594561', '27999251', '179573301', '611679955', '46165631', '551526071', '101165001', '134292171',
-    '168160141', '450270361', '26554101', '610427401', '89210001', '537341591', '165370941', '614031554', '586608881', '586481701',
-    '544108441', '235493731', '186111231', '560669831', '69662191', '406173031', '215047171', '327232121', '146864981', '160575501',
-    '119087321', '68277481', '102836251', '166040121', '167374331', '92172161', '220455911', '116049931', '142874561', '602284521',
-    '66677101', '230656561', '102726651', '585337501', '608937156', '284964471', '48680621', '191838061', '565126211', '160571121',
-    '589092841', '620875620', '113700001', '357819031', '558146061', '615966434', '221405381', '175066671', '606431381', '173863411'
+    '573697681', '428128071', '88531421', '211835021', '610451060', '72428651', '564023871', '116768801', '61383711', '316745031',
+    '246875981', '92749501', '174757801', '608961847', '289306081', '614584584', '586246051', '300360751', '612959309', '178092791',
+    '422231291', '612007611', '117594561', '87415241', '179573301', '611679955', '46165631', '551526071', '101165001', '134292171',
+    '125987801', '450270361', '26554101', '610427401', '89210001', '537341591', '165370941', '614031554', '586608881', '586481701',
+    '544108441', '235493731', '186111231', '560669831', '69662191', '406173031', '215047171', '327232121', '227464551', '160575501',
+    '119087321', '68277481', '102836251', '166040121', '513049811', '92172161', '220455911', '116049931', '142874561', '602284521',
+    '66677101', '230656561', '609684978', '585337501', '608937156', '284964471', '48680621', '191838061', '565126211', '160571121',
+    '589092841', '620875620', '113700001', '357819031', '151864601', '195952631', '221405381', '175066671', '606431381', '173863411'
   ];
 
   return (
@@ -26,6 +44,7 @@ export default function Home() {
             alt="Bird backdrop"
             fill
             className="object-cover opacity-80"
+            // style={{ filter: 'brightness(1.0-)' }}
             priority
             sizes="100vw"
           />
@@ -67,12 +86,17 @@ export default function Home() {
                   <span>Data</span>
                 </a>
                 <a
-                  className="bg-gray-100 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-400 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm cursor-not-allowed opacity-60"
+                  className="bg-gray-100 rounded-xl px-4 sm:px-5 py-1.5 sm:py-2 text-slate-400 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm cursor-not-allowed opacity-60 relative overflow-visible"
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
-                  <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>Code</span>
+                  <div className="flex flex-col items-center gap-0">
+                    <div className="flex items-center gap-2">
+                      <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Code</span>
+                    </div>
+                    <span className="text-[9px] sm:text-[10px] leading-tight">in preparation</span>
+                  </div>
                 </a>
                 <a
                   className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
@@ -98,7 +122,7 @@ export default function Home() {
         <div className="max-w-[900px] px-4 sm:px-6 m-auto space-y-6">
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
-              Fine-grained visual recognition skills are vital to many expert domains, yet understanding how humans acquire such expertise remains an open challenge. We introduce <b>CleverBirds</b>, a large-scale benchmark for knowledge tracing in fine-grained visual recognition. The dataset contains 17.9 million multiple-choice questions from 40,144 participants across 10,779 bird species, with an average of 444 questions per participant.
+              Fine-grained visual recognition skills are vital to many expert domains, yet understanding how humans acquire such expertise remains an open challenge. We introduce <a href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900"><b>CleverBirds</b></a>, a large-scale benchmark for knowledge tracing in fine-grained visual recognition. The dataset contains 17.9 million multiple-choice questions from 40,144 participants across 10,779 bird species, with an average of 444 questions per participant.
             </div>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed">
@@ -108,7 +132,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              We collected CleverBirds from the Photo and Sound Quiz feature of the eBird citizen science platform. In this quiz, participants are shown a bird image and asked to identify the species from a list of options. They receive immediate feedback on the correct answer after each response. Quiz responses were collected from March 2018 to October 2024.
+              We collected CleverBirds from the Photo and Sound Quiz feature of the <a href="https://ebird.org" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900">eBird</a> citizen science platform. In this quiz, participants are shown a bird image and asked to identify the species from a list of options. They receive immediate feedback on the correct answer after each response. Quiz responses were collected from March 2018 to October 2024.
             </div>
 
             <div className="mt-6">
@@ -240,24 +264,37 @@ export default function Home() {
               If you found CleverBirds useful, please consider citing our work:
             </div>
 
-            <pre className="mt-4 bg-gray-100 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto">
-              @inproceedings{"{"}bossemeyercleverbirds,
-              <br />
-              &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
-              <br />
-              &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin{"}"},
-              <br />
-              &nbsp;&nbsp;booktitle={"{"}The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track{"}"}
-              <br />
-              {"}"}
-            </pre>
+            <div className="relative mt-4">
+              <pre className="bg-gray-100 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto pr-9 sm:pr-11">
+                @inproceedings{"{"}bossemeyercleverbirds,
+                <br />
+                &nbsp;&nbsp;title={"{"}CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing{"}"},
+                <br />
+                &nbsp;&nbsp;author={"{"}Bossemeyer, Leonie and Heinrich, Samuel and Van Horn, Grant and Mac Aodha, Oisin{"}"},
+                <br />
+                &nbsp;&nbsp;booktitle={"{"}The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track{"}"}
+                <br />
+                {"}"}
+              </pre>
+              <button
+                onClick={handleCopyCitation}
+                className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 p-1.5 sm:p-2 rounded-md bg-transparent hover:bg-gray-200/60 transition-all duration-150"
+                title={copied ? "Copied!" : "Copy citation"}
+              >
+                {copied ? (
+                  <Icons.Check2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-600" />
+                ) : (
+                  <Icons.Clipboard className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500 hover:text-gray-700 transition-colors" />
+                )}
+              </button>
+            </div>
           </div>
 
           <div className="mt-6 pt-4 border-t border-slate-200">
             <div className="text-[10px] sm:text-xs text-slate-500">
               {/* <div className="mb-1 text-xs font-medium text-slate-600">Media Credits</div> */}
               <div className="text-[10px] sm:text-xs block leading-relaxed">
-                We used the following recordings from Cornell Lab of Ornithology | Macaulay Library:{' '}
+                We used the following recordings from <a href="https://www.birds.cornell.edu/" target="_blank" rel="noopener noreferrer" className="underline">Cornell Lab of Ornithology</a> | <a href="https://macaulaylibrary.org/" target="_blank" rel="noopener noreferrer" className="underline">Macaulay Library</a>:{' '}
                 {[
                   ...birdImageIds.map((id) => `ML${id}`),
                   'ML614845753', 'ML624914011', 'ML624836085',
