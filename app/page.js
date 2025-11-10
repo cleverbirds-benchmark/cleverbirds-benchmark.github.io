@@ -126,7 +126,7 @@ export default function Home() {
         <div className="max-w-[900px] px-4 sm:px-6 m-auto space-y-6">
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-4">
-              Fine-grained visual recognition skills are vital to many expert domains, yet understanding how humans acquire such expertise remains an open challenge. We introduce <a href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900"><b>CleverBirds</b></a>, a large-scale benchmark for knowledge tracing in fine-grained visual recognition. The dataset contains 17.9 million multiple-choice questions from 40,144 participants across 10,779 bird species, with an average of 444 questions per participant.
+              Fine-grained visual recognition skills are vital to many expert domains, yet understanding how humans acquire such expertise remains an open challenge. We introduce <a href="https://huggingface.co/datasets/bossemel/clever_birds" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900"><b>CleverBirds</b></a>, a large-scale benchmark for knowledge tracing in fine-grained visual recognition. The dataset contains 17.9 million multiple-choice questions from 40,144 participants across 10,779 bird species, with an average of 444 questions per participant. This dataset was introduced in <i>CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing</i>, to appear at NeurIPS 2025 (Datasets and Benchmarks track).
             </div>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed">
