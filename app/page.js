@@ -90,17 +90,13 @@ export default function Home() {
                   <span>Data</span>
                 </a>
                 <a
-                  className="bg-gray-100 rounded-xl px-4 sm:px-5 py-1.5 sm:py-2 text-slate-400 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm cursor-not-allowed opacity-60 relative overflow-visible"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="https://github.com/visipedia/clever_birds"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <div className="flex flex-col items-center gap-0">
-                    <div className="flex items-center gap-2">
-                      <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span>Code</span>
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] leading-tight">in preparation</span>
-                  </div>
+                  <Icons.Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Code</span>
                 </a>
                 <a
                   className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
