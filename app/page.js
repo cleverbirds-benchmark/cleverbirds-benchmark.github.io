@@ -266,10 +266,18 @@ export default function Home() {
                   'ML30091521', 'ML117787821', 'ML302310521', 'ML83984151', 'ML141517111', 'ML284199291',
                   'ML51777001', 'ML26854421', 'ML301728521', 'ML290513131', 'ML50787721', 'ML174404171',
                   'ML463868861', 'ML613090562'
-                ].join(', ')}.
+                ].map((mlId, index, array) => {
+                  const id = mlId.replace('ML', '');
+                  return (
+                    <span key={mlId}>
+                      <a href={`https://macaulaylibrary.org/asset/${id}`} target="_blank" rel="noopener noreferrer" className="underline">{mlId}</a>
+                      {index < array.length - 1 && ', '}
+                    </span>
+                  );
+                })}.
               </div>
               <div className="mt-3 text-[10px] sm:text-xs block leading-relaxed">
-                Project page adapted from INQUIRE: A Natural World Text-to-Image Retrieval Benchmark — Vendrow et al., NeurIPS 37 (2024).
+                Project page adapted from <a href="https://inquire-benchmark.github.io/" target="_blank" rel="noopener noreferrer" className="underline">INQUIRE: A Natural World Text-to-Image Retrieval Benchmark — Vendrow et al., NeurIPS 37 (2024)</a>.
               </div>
             </div>
           </div>
