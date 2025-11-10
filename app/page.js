@@ -180,7 +180,7 @@ export default function Home() {
             </div>
 
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              Participants can choose which location they want to be quizzed on, and quiz locations are distributed globally, as shown below.
+              Participants can choose which location they want to be quizzed on, and quiz locations are distributed globally.
             </div>
 
             <div className="mt-6 mb-6">
@@ -208,7 +208,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              The knowledge tracing task requires predicting a participant's response given their interaction history, the current question image, candidate species options, and the correct answer. Models are provided with the participant's past responses and have to infer their evolving knowledge state to predict their guess.
+              The knowledge tracing task requires predicting a participant's response given the current question and the correct answer. Models are provided with additional context such as the participant's interaction history and species information and have to infer the learner's evolving knowledge state to predict their guess.
             </div>
 
             <div className="mt-6 mb-6">
@@ -236,7 +236,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              We evaluated state-of-the-art knowledge tracing methods on CleverBirds, including both binary classification and multiple-choice prediction tasks. We found that tracking learner knowledge is challenging, especially across participant subgroups and question types, with different forms of contextual information providing varying degrees of predictive benefit.
+              We evaluated a range of machine learning models andstate-of-the-art knowledge tracing methods on CleverBirds. We found that tracking learner knowledge is challenging, especially when predicting incorrect choices, with different forms of contextual information providing varying degrees of predictive benefit.
             </div>
 
             <div className="mt-6 mb-6">
@@ -251,7 +251,7 @@ export default function Home() {
                 />
               </div>
               <div className="text-sm text-slate-600 text-left mt-1">
-                <b>Figure 4:</b> Model performance comparison showing binary classification and multiple-choice prediction results with error bars.
+                <b>Figure 4:</b> Performance on the multiple-choice and binary tasks. Top-left: accuracy on the full multiple-choice dataset. Top-right: accuracy on the subset of questions answered incorrectly. Bottom-left: macro-averaged accuracy on the binary task. Bottom-right: average precision (AP) for predicting user errors. Models are grouped by color into <span style={{ color: '#16a34a' }}>simple classifiers</span> (<i>RF</i> <span className="font-mono">U</span>, <i>RF</i> <span className="font-mono">S</span>, <i>RF</i> <span className="font-mono">U+S</span>), <span style={{ color: '#ff8c00' }}>MLPs</span> (<i>MLP</i> <span className="font-mono">U+S+Img</span>, <i>MLP</i> <span className="font-mono">Img</span>), <span style={{ color: '#dc2626' }}>KT models</span> (<i>LM MCC</i>, <i>LM Seq2seq</i>, <i>AKT</i><sup>1</sup>, <i>ATKT</i><sup>2</sup>, and <i>simpleKT</i><sup>3</sup>), and simple <span style={{ color: '#2563eb' }}>heuristics</span> (<i>Always Correct</i>, <i>Random binary</i>, <i>Random multiple-choice</i>, <i>Conf Prior</i>, <i>Conf Prior Inc</i>).
               </div>
             </div>
 
