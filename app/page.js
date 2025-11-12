@@ -128,7 +128,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              We collected CleverBirds from the Photo and Sound Quiz feature of the <a href="https://ebird.org" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900">eBird</a> citizen science platform. In this quiz, participants are shown a bird image and asked to identify the species from a list of options. They receive immediate feedback on the correct answer after each response. Quiz responses were collected from March 2018 to October 2024.
+              We collected CleverBirds from the Photo and Sound Quiz of the <a href="https://ebird.org" target="_blank" rel="noopener noreferrer" className="text-slate-700 underline hover:text-slate-900">eBird</a> citizen science platform. In this quiz, participants are shown a bird image and asked to identify the species from a list of options. They receive immediate feedback on the correct answer after each response. Quiz responses were collected from March 2018 to October 2024.
             </div>
 
             <div className="mt-6">
