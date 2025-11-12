@@ -232,7 +232,7 @@ export default function Home() {
 
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm">
             <div className="text-md font-regular text-slate-700 leading-relaxed mb-6">
-              We evaluated a range of machine learning models andstate-of-the-art knowledge tracing methods on CleverBirds. We found that tracking learner knowledge is challenging, especially when predicting incorrect choices, with different forms of contextual information providing varying degrees of predictive benefit.
+              We evaluated a range of machine learning models and state-of-the-art knowledge tracing methods on CleverBirds. We found that tracking learner knowledge is challenging, especially when predicting incorrect choices, with different forms of contextual information providing varying degrees of predictive benefit.
             </div>
 
             <div className="mt-6 mb-6">
