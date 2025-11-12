@@ -68,17 +68,13 @@ export default function Home() {
             <div className="mt-4 sm:mt-6">
               <div className="flex flex-wrap gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
                 <a
-                  className="bg-gray-100 rounded-xl px-4 sm:px-5 py-1.5 sm:py-2 text-slate-400 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm cursor-not-allowed opacity-60 relative overflow-visible"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
+                  href="http://arxiv.org/abs/2511.08512"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <div className="flex flex-col items-center gap-0">
-                    <div className="flex items-center gap-2">
-                      <Icons.FileEarmarkText className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span>Paper</span>
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] leading-tight">in preparation</span>
-                  </div>
+                  <Icons.FileEarmarkText className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Paper</span>
                 </a>
                 <a
                   className="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 sm:px-5 py-2 sm:py-2.5 text-slate-700 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium shadow-sm hover:shadow-md"
