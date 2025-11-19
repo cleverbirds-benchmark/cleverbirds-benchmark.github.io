@@ -74,6 +74,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} install
 
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_TRACKING_API_URL: ${{ secrets.TRACKING_API_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact

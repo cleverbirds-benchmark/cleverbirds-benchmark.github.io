@@ -1,0 +1,10 @@
+{
+  "name": "cleverbirds-tracking-api",
+  "version": "1.0.0",
+  "description": "API endpoint for tracking CleverBirds website visits",
+  "main": "track.js",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
+

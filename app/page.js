@@ -2,10 +2,37 @@
 
 import Image from "next/image";
 import * as Icons from "react-bootstrap-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
+
+  // Track page visit
+  useEffect(() => {
+    const trackVisit = async () => {
+      try {
+        // Track visits (only in browser, not during SSR)
+        if (typeof window !== 'undefined') {
+          const apiUrl = process.env.NEXT_PUBLIC_TRACKING_API_URL || 'https://cleverbirds-tracking.vercel.app/api/track';
+          await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              timestamp: new Date().toISOString(),
+              path: window.location.pathname,
+            }),
+          });
+        }
+      } catch (error) {
+        // Silently fail - don't interrupt user experience
+        console.debug('Visit tracking failed:', error);
+      }
+    };
+
+    trackVisit();
+  }, []);
 
   const citationText = `@inproceedings{bossemeyercleverbirds,
   title={CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing},
